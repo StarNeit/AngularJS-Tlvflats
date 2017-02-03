@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="tinedel (generated)" id="1456586404177-1">
+        <createTable tableName="booking">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="room_id" type="INT"/>
+            <column name="book_id" type="INT"/>
+            <column name="unit_id" type="INT"/>
+            <column name="room_qty" type="INT"/>
+            <column name="status" type="INT"/>
+            <column name="first_night" type="LONGTEXT"/>
+            <column name="last_night" type="LONGTEXT"/>
+            <column name="num_adult" type="INT"/>
+            <column name="num_child" type="INT"/>
+            <column name="guest_title" type="LONGTEXT"/>
+            <column name="guest_first_name" type="LONGTEXT"/>
+            <column name="guest_name" type="LONGTEXT"/>
+            <column name="guest_email" type="LONGTEXT"/>
+            <column name="guest_phone" type="LONGTEXT"/>
+            <column name="guest_mobile" type="LONGTEXT"/>
+            <column name="guest_fax" type="LONGTEXT"/>
+            <column name="guest_address" type="LONGTEXT"/>
+            <column name="guest_city" type="LONGTEXT"/>
+            <column name="guest_postcode" type="LONGTEXT"/>
+            <column name="guest_country" type="LONGTEXT"/>
+            <column name="guest_arrival_time" type="LONGTEXT"/>
+            <column name="guest_voucher" type="LONGTEXT"/>
+            <column name="guest_comments" type="LONGTEXT"/>
+            <column name="notes" type="LONGTEXT"/>
+            <column name="message" type="LONGTEXT"/>
+            <column name="custom1" type="LONGTEXT"/>
+            <column name="custom2" type="LONGTEXT"/>
+            <column name="custom3" type="LONGTEXT"/>
+            <column name="custom4" type="LONGTEXT"/>
+            <column name="custom5" type="LONGTEXT"/>
+            <column name="custom6" type="LONGTEXT"/>
+            <column name="custom7" type="LONGTEXT"/>
+            <column name="custom8" type="LONGTEXT"/>
+            <column name="custom9" type="LONGTEXT"/>
+            <column name="custom10" type="LONGTEXT"/>
+            <column name="flag_color" type="LONGTEXT"/>
+            <column name="flag_text" type="LONGTEXT"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="deposit" type="DOUBLE"/>
+            <column name="tax" type="DOUBLE"/>
+            <column name="commission" type="DOUBLE"/>
+            <column name="referer" type="LONGTEXT"/>
+            <column name="referer_editable" type="LONGTEXT"/>
+            <column name="api_source" type="LONGTEXT"/>
+            <column name="api_reference" type="LONGTEXT"/>
+            <column name="booking_time" type="LONGTEXT"/>
+            <column name="modified" type="LONGTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-2">
+        <createTable tableName="feature">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fa_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-3">
+        <createTable tableName="image">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="property_id" type="INT"/>
+            <column name="url" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="path" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="LONGTEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-4">
+        <createTable tableName="owner">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="login" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pass_hash" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="api_key" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="admin" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-5">
+        <createTable tableName="place">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="parent_id" type="INT"/>
+            <column name="name" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="searchable" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-6">
+        <createTable tableName="property">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="owner_id" type="INT"/>
+            <column name="prop_key" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="short_description" type="LONGTEXT"/>
+            <column name="long_description" type="LONGTEXT"/>
+            <column name="propid" type="INT"/>
+            <column name="single_room" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="longitude" type="DOUBLE"/>
+            <column name="latitude" type="DOUBLE"/>
+            <column name="instant_book" type="BIT"/>
+            <column name="place_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-7">
+        <createTable tableName="property_feature">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="property_id" type="INT"/>
+            <column name="feature_id" type="INT"/>
+            <column name="attribure" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-8">
+        <createTable tableName="property_place">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="property_id" type="INT"/>
+            <column name="place_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-9">
+        <createTable tableName="room">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="property_id" type="INT"/>
+            <column name="title" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="display_price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="accomodate" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bedrooms" type="INT"/>
+            <column name="bathrooms" type="INT"/>
+            <column name="size" type="INT"/>
+            <column name="floor" type="INT"/>
+            <column name="roomid" type="INT"/>
+            <column name="balkony" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-10">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="login" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pass_hash" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-11">
+        <addForeignKeyConstraint baseColumnNames="room_id" baseTableName="booking" baseTableSchemaName="tlvflats" constraintName="FK_E00CEDDE54177093" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="room" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-12">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="image" baseTableSchemaName="tlvflats" constraintName="FK_C53D045F549213EC" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="property" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-13">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="place" baseTableSchemaName="tlvflats" constraintName="FK_741D53CD727ACA70" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="place" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-14">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="property" baseTableSchemaName="tlvflats" constraintName="FK_8BF21CDE7E3C61F9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="owner" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-15">
+        <addForeignKeyConstraint baseColumnNames="place_id" baseTableName="property" baseTableSchemaName="tlvflats" constraintName="FK_8BF21CDEDA6A219" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="place" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-16">
+        <addForeignKeyConstraint baseColumnNames="feature_id" baseTableName="property_feature" baseTableSchemaName="tlvflats" constraintName="FK_461A3F1E60E4B879" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="feature" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-17">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="property_feature" baseTableSchemaName="tlvflats" constraintName="FK_461A3F1E549213EC" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="property" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-18">
+        <addForeignKeyConstraint baseColumnNames="place_id" baseTableName="property_place" baseTableSchemaName="tlvflats" constraintName="FK_B20E92C0DA6A219" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="place" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-19">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="property_place" baseTableSchemaName="tlvflats" constraintName="FK_B20E92C0549213EC" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="property" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456586404177-20">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="room" baseTableSchemaName="tlvflats" constraintName="FK_729F519B549213EC" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="property" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+</databaseChangeLog>

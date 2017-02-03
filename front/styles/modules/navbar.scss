@@ -1,0 +1,54 @@
+@import './../variables';
+
+/* ==========================================================================
+   Navbar styles
+   ========================================================================== */
+navbar {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  min-height: 60px;
+
+  md-toolbar {
+    position: fixed;
+    left: 0;
+    min-height: 60px;
+
+    .fa-bars {
+      color: #fff;
+      font-size: 21px;
+    }
+
+    .header {
+      cursor: pointer;
+      img {
+        height: 40px;
+      }
+    }
+
+    .md-toolbar-tools {
+      height: 60px !important;
+      max-height: 60px !important;
+    }
+
+    .navigation {
+      height: 60px;
+
+      .md-button:not(.list) {
+        height: 60px;
+        line-height: 60px;
+        border-radius: 0;
+        margin: 0;
+        box-shadow: none !important;
+      }
+
+      .md-button.list {
+        height: 30px;
+        min-height: 30px;
+        line-height: 30px;
+        font-size: 13px;
+        float: right;
+        margin-top: 15px;
+        margin-right: 0;
+      }
+    }
+  }
+}

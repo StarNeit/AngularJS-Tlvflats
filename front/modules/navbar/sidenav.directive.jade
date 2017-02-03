@@ -1,0 +1,110 @@
+md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left', md-is-locked-open="$mdMedia('gt-md')", ng-hide = "$state.current.name != 'search'")
+    md-content
+        ul.navigation(ng-hide = "!self.$mdMedia('xs')")
+            li(ui-sref-active = 'active'): a(ui-sref = 'search')
+                | Search
+            li(ui-sref-active = 'active'): a(ui-sref = 'about')
+                | About
+            li(ui-sref-active = 'active'): a(ui-sref = 'auth')
+                | Login
+            li: a(ui-sref = 'post')
+                | List your property
+
+        ol.breadcrumb
+            li.active: a 65 out of 65 properties
+
+        .block
+            label Date From
+            .form-group
+                datepicker(date-format="dd-MM-yy")
+                    input(ng-model="self.filters.dateFrom", ng-change="self.changeDate(self.filters.dateFrom, 'dateTo', 1)")
+                i.material-icons event
+
+        .block
+            label Date to
+            .form-group
+                datepicker(date-format="dd-MM-yy")
+                    input(ng-model="self.filters.dateTo", type="text")
+                i.material-icons event
+
+        .block(ng-init = 'guestDropdown = false')
+            label(ng-init = "self.filters.visitors = '1'") Guests
+            .form-group(ng-class = '{ open : guestDropdown }')
+                input.form-control(ng-model='self.filters.visitors', ng-click = 'guestDropdown = !guestDropdown')
+                i.fa.fa-user
+
+                ul.dropdown(ng-click='guestDropdown = false')
+                    li(ng-click="self.filters.visitors = '1'")  1 guests
+                    li(ng-click="self.filters.visitors = '2'") 2 guests
+                    li(ng-click="self.filters.visitors = '3'") 3 guests
+                    li(ng-click="self.filters.visitors = '4'") 4 guests
+                    li(ng-click="self.filters.visitors = '5'") 5 guests
+                    li(ng-click="self.filters.visitors = '6'") 6 guests
+                    li(ng-click="self.filters.visitors = '7'") 7 guests
+                    li(ng-click="self.filters.visitors = '8'") 8 guests
+                    li(ng-click="self.filters.visitors = '9'") 9 guests
+                    li(ng-click="self.filters.visitors = '10+'") 10+ guests
+                span.caret
+
+        .block
+            md-button.md-raised.md-accent(ng-click = 'self.search()') Search
+
+        .block(ng-init = 'sortingDropdown = false')
+            label(ng-init = "self.sort = 'Most Popular'") Sort by: {{ search.sort }}
+
+            .form-group(ng-class = '{ open : sortingDropdown }')
+                input.form-control(ng-model='self.sort', ng-click = 'sortingDropdown = !sortingDropdown')
+                i.material-icons sort
+
+                ul.dropdown(ng-click='sortingDropdown = false')
+                    li(ng-click="self.sort = 'Most Popular'") Most Popular
+                    li(ng-click="self.sort = 'Price: Low to High'") Price: Low to High
+                    li(ng-click="self.sort = 'Price: High to Low'") Price: High to Low
+                    li(ng-click="self.sort = 'Size: high to low'") Size: High to Low
+                    li(ng-click="self.sort = 'Bedrooms: High to Low'") Bedrooms: High to Low
+                    li(ng-click="self.sort = 'Distance to Beach'") Distance to Beach
+                    li(ng-click="self.sort = 'Luxury stars: High to Low'") Luxury stars: High to Low
+                span.caret
+
+        .block(ng-init = 'bedroomsDropdown = false')
+            label(ng-init = "self.filters.bedrooms = '1'") Bedrooms
+            .form-group(ng-class = '{ open : bedroomsDropdown }')
+                input.form-control(ng-model='self.filters.bedrooms', ng-click = 'bedroomsDropdown = !bedroomsDropdown')
+                i.icon-twin
+
+                ul.dropdown(ng-click='bedroomsDropdown = false')
+                    li(ng-click="self.filters.bedrooms = '1'") 1
+                    li(ng-click="self.filters.bedrooms = '2'") 2
+                    li(ng-click="self.filters.bedrooms = '3'") 3
+                    li(ng-click="self.filters.bedrooms = '4'") 4
+                    li(ng-click="self.filters.bedrooms = '5'") 5+
+
+                span.caret
+
+        .block(ng-init = 'showFilters = false')
+            md-button.md-raised.md-accent(ng-click = 'showFilters = !showFilters', aria-label = 'Show Filters')
+                span(ng-if = 'showFilters == false') Show filters
+                    i.material-icons arrow_drop_down
+                span(ng-if = 'showFilters == true') Hide filters
+                    i.material-icons arrow_drop_up
+
+        .block(ng-show = 'showFilters == true')
+            md-checkbox(ng-model='self.filters.elevator', aria-label='Elevator')
+                | Elevator
+            md-checkbox(ng-model='self.filters.parking', aria-label='Parking')
+                | Parking
+            md-checkbox(ng-model='self.filters.washing', aria-label='Washing Machine')
+                | Washing Machine
+            md-checkbox(ng-model='self.filters.outdoor', aria-label='Outdoor Space')
+                | Outdoor Space
+            md-checkbox(ng-model='self.filters.sea', aria-label='Sea View')
+                | Sea View
+
+        .block(ng-show = 'showFilters == true')
+            md-button.md-raised.md-accent Show All
+
+        //.block
+            .col-xs-2(ng-repeat = 'theme in self.themes')
+                .theme(ng-class = "theme == theme.title ? 'active' : ''", ng-click="self.changeTheme(theme.title)", title = '{{ theme.title }}')
+                    .primary(ng-style = "{ 'background-color' : '{{theme.primary}}'}")
+                    .accent(ng-style = "{ 'background-color' : '{{theme.accent}}'}")

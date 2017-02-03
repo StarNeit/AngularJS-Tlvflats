@@ -1,0 +1,234 @@
+@import './../variables';
+
+/* ==========================================================================
+   Search page styles
+   ========================================================================== */
+body.search {
+  main {
+    overflow: hidden;
+  }
+
+  .property-list {
+    overflow-y: scroll;
+    md-card {
+      padding: 5px;
+      position: relative;
+      border: 1px solid #dedede;
+      transition: ease 0.2s;
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+      display: flex !important;
+
+      .carousel {
+        padding: 0;
+        margin: 0 0 10px 0;
+        @media (min-width: 960px) {
+          width: 390px;
+          margin-bottom: 0;
+        }
+        .control {
+          z-index: 1;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 10%;
+          color: #fff;
+          text-align: center;
+          opacity: .5;
+          transition: 0.15s ease;
+          outline: 0;
+          i {
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            margin-top: -10px;
+            font-size: 30px;
+            left: 5px;
+          }
+          &.left {
+            background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+            left: 0;
+          }
+          &.right {
+            background-image: linear-gradient(to left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+            right: 0;
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: #fff;
+            text-decoration: none;
+            outline: 0;
+            opacity: .9;
+          }
+        }
+
+        li {
+          width: 100%;
+          height: 100%;
+        }
+
+        .image {
+          background-position: center center;
+          height: 100%;
+          background-size: cover;
+        }
+
+        .carousel-caption {
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 0;
+          background-color: rgba(0, 0, 0, 0.4);
+          p {
+            padding: 0;
+          }
+        }
+        .carousel-indicators {
+          display: none;
+        }
+      }
+
+      md-card-content {
+        padding: 0 0 0 10px;
+        md-card-title-text {
+          .md-title {
+            margin: 5px 0;
+            color: #585858;
+            cursor: pointer;
+            font-family: proxima_nova_rgbold;
+          }
+          .md-subhead {
+            margin: 3px 0;
+            font-size: 14px;
+          }
+        }
+        p {
+          font-size: 15px;
+          max-height: 46px;
+          line-height: 23px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+          padding: 0;
+          margin: 10px 0;
+        }
+
+        ul.overview {
+          width: 100%;
+          display: table;
+          padding: 0;
+          margin: 49px 0 0 0;
+          li {
+            text-align: center;
+            display: table-cell;
+            border-right: 1px solid;
+            border-color: rgba(211, 211, 211, 0.6);
+            font-weight: 100;
+            position: relative;
+            padding: 0;
+            float: left;
+            margin-bottom: 5px;
+            width: 16.66%;
+            height: 45px;
+            overflow: hidden;
+            i {
+              float: left;
+              font-size: 17px;
+              margin: 0 30%;
+              color: #82888a;
+              width: 40%;
+            }
+            &:nth-child(6n), &:last-child {
+              border-right: none;
+            }
+            .body {
+              font-size: 9px;
+              width: 100%;
+              overflow: hidden;
+            }
+          }
+        }
+        md-card-footer {
+          padding: 0;
+          width: 100%;
+          display: block;
+          height: 36px;
+          border-top: 1px solid #d3d3d3;
+          .price {
+            float: left;
+            font-family: proxima_nova_rgbold;
+            font-size: 20px;
+            line-height: 36px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+            padding: 0;
+            color: $primary-color;
+          }
+          .fa {
+            line-height: 36px;
+            font-size: 20px;
+            margin-right: 10px;
+            color: $secondary-color;
+            cursor: pointer;
+            float: right;
+            &:hover {
+              color: $secondary-color-darken;
+            }
+          }
+          .md-button {
+            float: right;
+            min-height: 32px;
+            height: 32px;
+            line-height: 32px;
+            margin: 2px 0;
+          }
+        }
+      }
+
+      &.hover {
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .pagination {
+      margin: 20px 8px;
+    }
+  }
+  .map {
+    height: 100%;
+    margin-top: -60px;
+    padding-top: 60px;
+    ui-gmap-google-map {
+      .angular-google-map, .angular-google-map-container {
+        height: 100%;
+      }
+      .map-popup {
+        text-align: left;
+        p {
+          padding: 0;
+          &.title {
+            font-weight: bold;
+          }
+        }
+        .image {
+          height: 100px;
+          width: 150px;
+          background-size: cover;
+        }
+      }
+    }
+  }
+
+  .loading {
+    position: relative;
+    .fa-spinner {
+      font-size: 40px;
+      text-align: center;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: '%env.database_host%'
+    database_port: '%env.database_port%'
+    database_name: '%env.database_name%'
+    database_user: '%env.database_user%'
+    database_password: '%env.database_password%'
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    notify_service.listeners:
+        - AirBnBListener
+        - SyncListener
+    channel.services:
+        - MyTlvChannelService
+    cron.tasks:
+        - CheckPullChannels
+    secret: '%env.secret%'
+    airbnb_listener.recheck: PT5M
+    mytlv.endpoint: '%env.mytlv.endpoint%'

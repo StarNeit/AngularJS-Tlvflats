@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('admin_main') }}">Back to main admin page</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Rate stepping sets:</h3>
+            {% for steppingSet in rateSteppingSets %}
+                <a href="{{ path('edit_rate_stepping_set', {'rateSteppingSetId':steppingSet.id}) }}">{{ steppingSet.name }}</a><br/>
+            {% endfor %}
+            <a href="{{ path('edit_rate_stepping_set', {'rateSteppingSetId':'new'}) }}">New rate stepping</a>
+        </div>
+    </div>
+{% endblock %}

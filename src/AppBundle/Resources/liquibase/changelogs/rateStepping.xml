@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="tinedel (generated)" id="1456593316874-11">
+        <createTable tableName="rate_stepping">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="rate_stepping_set_id" type="INT"/>
+            <column name="name" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456593316874-12">
+        <createTable tableName="rate_stepping_set">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="owner_id" type="INT"/>
+            <column name="name" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="tinedel (generated)" id="1456593316874-26">
+        <addForeignKeyConstraint baseColumnNames="rate_stepping_set_id" baseTableName="rate_stepping" baseTableSchemaName="tlvflats" constraintName="FK_2D7731448F0024C5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="rate_scope_set" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456593316874-27">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="rate_stepping_set" baseTableSchemaName="tlvflats" constraintName="FK_BF01CFAF7E3C61F9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="owner" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+
+    <changeSet id="initialDataRateStepping" author="tinedel">
+        <insert tableName="rate_stepping_set">
+            <column name="name">default</column>
+        </insert>
+        <insert tableName="rate_stepping">
+            <column name="rate_stepping_set_id">1</column>
+            <column name="name">Low Season</column>
+        </insert>
+        <insert tableName="rate_stepping">
+            <column name="rate_stepping_set_id">1</column>
+            <column name="name">Low-Mid Season</column>
+        </insert>
+        <insert tableName="rate_stepping">
+            <column name="rate_stepping_set_id">1</column>
+            <column name="name">Mid Season</column>
+        </insert>
+        <insert tableName="rate_stepping">
+            <column name="rate_stepping_set_id">1</column>
+            <column name="name">Mid-High Season</column>
+        </insert>
+        <insert tableName="rate_stepping">
+            <column name="rate_stepping_set_id">1</column>
+            <column name="name">High Season</column>
+        </insert>
+        <insert tableName="rate_stepping">
+            <column name="rate_stepping_set_id">1</column>
+            <column name="name">Highest Season</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

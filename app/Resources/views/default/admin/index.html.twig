@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+        <div class="col-md-12">
+            <h3>Edit properties:</h3>
+
+            {% for property in properties %}
+                <p><a href="{{ path('edit_property', {'propertyId':property.id}) }}">{{ property.title }}</a> | <a
+                            href="{{ path('remove_property', {'propertyId':property.id}) }}"
+                            class="dangerous">delete {{ property.title }}</a></p>
+            {% endfor %}
+            <p><a href="{{ path('edit_property', {'propertyId':'new'}) }}">Add property</a></p>
+        </div>
+
+        <div class="col-md-12">
+            <p><a href="{{ path('import_properties') }}">Import properties</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Channels</h3>
+            {% for channel in channels %}
+                <a href="{{ path('manage_channel', {'channelId':channel.id}) }}">{{ channel.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Bulk image processing</h3>
+            <p><a href="{{ path('remove_all_images') }}" class="dangerous">Remove all images for all properties</a></p>
+            <p><a href="{{ path('regenerate_all_thumbnails') }}" class="dangerous">Regenerate thumbnails for all
+                    properties</a></p>
+            <p><a href="{{ path('check_image_files') }}">Check image files presence</a></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Edit features:</h3>
+            {% for feature in features %}
+                <p><i class="fa {{ feature.faName }}"></i>&nbsp;<a
+                            href="{{ path('edit_feature', {'featureId':feature.id}) }}">{{ feature.name }}</a> | <a
+                            href="{{ path('remove_feature', {'featureId':feature.id}) }}"
+                            class="dangerous">delete {{ feature.name }}</a></p>
+            {% endfor %}
+            <p><a href="{{ path('edit_feature', {'featureId':'new'}) }}">Add feature</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Places:</h3>
+            <a href="{{ path('edit_places') }}">Edit places</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Bookings:</h3>
+            <a href="{{ path('import_all_bookings') }}">Import bookings for all properties</a>
+        </div>
+    </div>
+    {% if is_granted('ROLE_SUPERADMIN') %}
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Edit users</h3>
+                {% for user in users %}
+                    <p><a href="{{ path('edit_user', {'userId':user.id}) }}">{{ user.login }}</a> | <a
+                                href="{{ path('remove_user', {'userId':user.id}) }}"
+                                class="dangerous">delete {{ user.login }} (all properties will be removed)</a></p>
+                {% endfor %}
+                <p><a href="{{ path('edit_user', {'userId':'new'}) }}">Add user</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Edit global rates and prices</h3>
+                <a href="{{ path('index_rate_scopes') }}">Edit rate scopes</a><br/>
+                <a href="{{ path('index_rate_steppings') }}">Edit rate steppings</a><br/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Edit Agencies:</h3>
+                {% for agency in agencies %}
+                    <p><a href="{{ path('edit_agency', {'agencyId':agency.id}) }}">{{ agency.name }}</a> | <a
+                                href="{{ path('remove_agency', {'agencyId':agency.id}) }}"
+                                class="dangerous">delete {{ agency.name }} (all agents will be removed)</a></p>
+                {% endfor %}
+                <p><a href="{{ path('edit_agency', {'agencyId':'new'}) }}">Add agency</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Edit Currencies:</h3>
+                <a name="currencies"></a>
+                {% for currency in currencies %}
+                    <p><a href="{{ path('edit_currency', {'currencyId':currency.id}) }}">
+                            {% if currency.before %}{{ currency.symbol }}{% endif %}{{ currency.name }}{% if not currency.before %}{{ currency.symbol }}{% endif %}
+                        </a> | <a
+                                href="{{ path('remove_currency', {'currencyId':currency.id}) }}"
+                                class="dangerous">delete {{ currency.name }}</a></p>
+                {% endfor %}
+                <p><a href="{{ path('edit_currency', {'currencyId':'new'}) }}">Add currency</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Edit Channels:</h3>
+                <a name="channels"></a>
+                {% for channel in channels %}
+                    <p><a href="{{ path('edit_channel', {'channelId':channel.id}) }}">
+                            channel.name
+                        </a> | <a
+                                href="{{ path('remove_channel', {'channelId':channel.id}) }}"
+                                class="dangerous">delete {{ channel.name }}. All links to this channel's managed
+                            apartments will be removed</a></p>
+                {% endfor %}
+                <p><a href="{{ path('edit_channel', {'channelId':'new'}) }}">Add channel</a></p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

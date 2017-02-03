@@ -1,0 +1,366 @@
+@import 'variables';
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+html {
+  height: 100%;
+  position: relative;
+  min-height: 100%;
+  color: #222;
+}
+
+body {
+  font-family: opensans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #70747c;
+  background-color: #ffffff;
+  min-width: 320px;
+  height: 100%;
+}
+
+header, footer, article, section, nav, figure, aside, main { display: block; }
+
+input:focus, select:focus, textarea:focus, button:focus, a:focus { outline:none; }
+
+input.ng-dirty.ng-invalid {
+  border: 1px solid #822;
+  background-color: #fcc;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio, canvas, img, video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  margin: 0;
+  padding: 0;
+  resize: vertical;
+}
+
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  padding-bottom: 2px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  padding: 0 0 15px 0;
+  line-height: 18px;
+}
+
+a:hover{ cursor: pointer; }
+
+.main-container, main {
+  height: 100%;
+}
+
+/* ==========================================================================
+   Loading Bar
+   ========================================================================== */
+#loading-bar .bar {
+  background: $primary-color;
+}
+#loading-bar-spinner {
+  top: 7px;
+  left: 29px;
+  .spinner-icon {
+    border-top-color: $primary-color;
+    border-left-color: $primary-color;
+    height: 37px;
+    width: 37px;
+    border-width: 3px;
+  }
+}
+
+/* ==========================================================================
+   Carousel
+   ========================================================================== */
+.carousel {
+  height: 230px;
+  overflow: hidden;
+  .carousel-inner {
+    height: 100%;
+    background-color: #777;
+    .item {
+      width: 100%;
+      display: block;
+      position: absolute;
+      left: 0 !important;
+      opacity: 0;
+      -moz-transition: .6s ease-in-out opacity;
+      -webkit-transition: .6s ease-in-out opacity;
+      -o-transition: .6s ease-in-out opacity;
+      transition: .6s ease-in-out opacity;
+      &.active, &.next.left {
+        opacity: 1;
+      }
+      &.next, &.active.left {
+        opacity: 0;
+      }
+    }
+  }
+  img {
+    width: 100%;
+  }
+  .carousel-control {
+    width: 7%;
+  }
+}
+
+
+/* ==========================================================================
+   Datepicker
+   ========================================================================== */
+datepicker {
+  float: none;
+  ._720kb-datepicker-calendar {
+    border-radius: 0;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    transition: 250ms ease;
+    ._720kb-datepicker-calendar-day {
+      border-radius: 50%;
+      &._720kb-datepicker-active {
+        background-color: #bebebe;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.md-button {
+  color: #fff !important;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  background: rgba(0, 0, 0, 0.4) url("/images/bg.jpg") repeat scroll bottom / cover;
+  float: left;
+  padding: 20px;
+  width: 100%;
+  font-family: proxima_novalight;
+  position: relative;
+
+  .overlay {
+    background-color: #000;
+    opacity: 0.6;
+    position: absolute;
+    top: 10px; right: 10px; bottom: 10px; left: 10px;
+  }
+  .col { z-index: 1; }
+
+  h4 {
+    font-family: proxima_nova_rgbold;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+  }
+  h3 {
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+    padding: 0 0 16px;
+  }
+
+  input {
+  }
+
+  .submit {
+    background: $primary-color;
+    color: #fff;
+    margin: 5px 0;
+    float: right;
+    &:hover {
+      background-color: $primary-color-darken;
+      color: #fff;
+    }
+  }
+
+  ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    li {
+      color: #fff;
+      font-size: 14px;
+      line-height: 24px;
+      margin: 0;
+      width: 100%;
+      float: left;
+      a {
+        color: #fff;
+        text-decoration: none;
+
+        .fa {
+          margin-right: 4px;
+          font-size: 21px;
+        }
+
+        &:hover {
+          color: #1190e7;
+          text-decoration: none;
+        }
+      }
+      &.message-send {
+        cursor: pointer;
+        a {
+          color: $secondary-color;
+          font-size: 14px;
+          line-height: 24px;
+          padding-left: 4px;
+        }
+        &:hover {
+          color: $secondary-color-darken;
+        }
+      }
+    }
+    &.paypal, &.paypal-icon {
+      float: left;
+      list-style: outside none none;
+      margin: 0;
+      padding: 8px 0;
+      li {
+        float: left;
+        padding: 0 5px 0 0;
+        width: auto;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Animation
+   ========================================================================== */
+.animated {
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideDown {
+  0% { -webkit-transform: translateY(-100%) }
+  100% { -webkit-transform: translateY(0) }
+}
+
+@-moz-keyframes slideDown {
+  0% { -moz-transform: translateY(-100%) }
+  100% { -moz-transform: translateY(0) }
+}
+
+@-o-keyframes slideDown {
+  0% { -o-transform: translateY(-100%) }
+  100% { -o-transform: translateY(0) }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-100%) }
+  100% { transform: translateY(0) }
+}
+
+.animated.slideDown {
+  -webkit-animation-name: slideDown;
+  -moz-animation-name: slideDown;
+  -o-animation-name: slideDown;
+  animation-name: slideDown;
+}
+
+@-webkit-keyframes slideUp {
+  0% { -webkit-transform: translateY(0) }
+  100% { -webkit-transform: translateY(-100%) }
+}
+@-moz-keyframes slideUp {
+  0% { -moz-transform: translateY(0) }
+  100% { -moz-transform: translateY(-100%) }
+}
+@-o-keyframes slideUp {
+  0% { -o-transform: translateY(0) }
+  100% { -o-transform: translateY(-100%) }
+}
+@keyframes slideUp {
+  0% { transform: translateY(0) }
+  100% { transform: translateY(-100%) }
+}
+
+.animated.slideUp {
+  -webkit-animation-name: slideUp;
+  -moz-animation-name: slideUp;
+  -o-animation-name: slideUp;
+  animation-name: slideUp;
+}
+
+/* ==========================================================================
+   Dialogs
+   ========================================================================== */
+
+md-dialog.photo {
+  max-width: 100%;
+  max-height: none;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

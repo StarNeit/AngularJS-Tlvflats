@@ -1,0 +1,280 @@
+@import 'variables';
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+@font-face {
+  font-family: 'proxima_novablack';
+  src: url('../fonts/proximanova-black-webfont.eot');
+  src: url('../fonts/proximanova-black-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanova-black-webfont.woff2') format('woff2'),
+       url('../fonts/proximanova-black-webfont.woff') format('woff'),
+       url('../fonts/proximanova-black-webfont.ttf') format('truetype'),
+       url('../fonts/proximanova-black-webfont.svg#proxima_novablack') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_nova_rgbold';
+  src: url('../fonts/proximanova-bold_0-webfont.eot');
+  src: url('../fonts/proximanova-bold_0-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanova-bold_0-webfont.woff2') format('woff2'),
+       url('../fonts/proximanova-bold_0-webfont.woff') format('woff'),
+       url('../fonts/proximanova-bold_0-webfont.ttf') format('truetype'),
+       url('../fonts/proximanova-bold_0-webfont.svg#proxima_nova_rgbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_nova_rgbold_italic';
+  src: url('../fonts/proximanova-boldit-webfont.eot');
+  src: url('../fonts/proximanova-boldit-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanova-boldit-webfont.woff2') format('woff2'),
+       url('../fonts/proximanova-boldit-webfont.woff') format('woff'),
+       url('../fonts/proximanova-boldit-webfont.ttf') format('truetype'),
+       url('../fonts/proximanova-boldit-webfont.svg#proxima_nova_rgbold_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_nova_condensedLtIt';
+  src: url('../fonts/proximanovacond-lightit-webfont.eot');
+  src: url('../fonts/proximanovacond-lightit-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanovacond-lightit-webfont.woff2') format('woff2'),
+       url('../fonts/proximanovacond-lightit-webfont.woff') format('woff'),
+       url('../fonts/proximanovacond-lightit-webfont.ttf') format('truetype'),
+       url('../fonts/proximanovacond-lightit-webfont.svg#proxima_nova_condensedLtIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_nova_cn_rgregular';
+  src: url('../fonts/proximanovacond-regular-webfont.eot');
+  src: url('../fonts/proximanovacond-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanovacond-regular-webfont.woff2') format('woff2'),
+       url('../fonts/proximanovacond-regular-webfont.woff') format('woff'),
+       url('../fonts/proximanovacond-regular-webfont.ttf') format('truetype'),
+       url('../fonts/proximanovacond-regular-webfont.svg#proxima_nova_cn_rgregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_nova_condensedRgIt';
+  src: url('../fonts/proximanovacond-regularit-webfont.eot');
+  src: url('../fonts/proximanovacond-regularit-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanovacond-regularit-webfont.woff2') format('woff2'),
+       url('../fonts/proximanovacond-regularit-webfont.woff') format('woff'),
+       url('../fonts/proximanovacond-regularit-webfont.ttf') format('truetype'),
+       url('../fonts/proximanovacond-regularit-webfont.svg#proxima_nova_condensedRgIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_novalight';
+  src: url('../fonts/proximanova-light-webfont.eot');
+  src: url('../fonts/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanova-light-webfont.woff2') format('woff2'),
+       url('../fonts/proximanova-light-webfont.woff') format('woff'),
+       url('../fonts/proximanova-light-webfont.ttf') format('truetype'),
+       url('../fonts/proximanova-light-webfont.svg#proxima_novalight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_novalight_italic';
+  src: url('../fonts/proximanova-lightitalic-webfont.eot');
+  src: url('../fonts/proximanova-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanova-lightitalic-webfont.woff2') format('woff2'),
+       url('../fonts/proximanova-lightitalic-webfont.woff') format('woff'),
+       url('../fonts/proximanova-lightitalic-webfont.ttf') format('truetype'),
+       url('../fonts/proximanova-lightitalic-webfont.svg#proxima_novalight_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_nova_rgregular';
+  src: url('../fonts/proximanova-regular_0-webfont.eot');
+  src: url('../fonts/proximanova-regular_0-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanova-regular_0-webfont.woff2') format('woff2'),
+       url('../fonts/proximanova-regular_0-webfont.woff') format('woff'),
+       url('../fonts/proximanova-regular_0-webfont.ttf') format('truetype'),
+       url('../fonts/proximanova-regular_0-webfont.svg#proxima_nova_rgregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima_novaregular_italic';
+  src: url('../fonts/proximanova-regularitalic-webfont.eot');
+  src: url('../fonts/proximanova-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/proximanova-regularitalic-webfont.woff2') format('woff2'),
+       url('../fonts/proximanova-regularitalic-webfont.woff') format('woff'),
+       url('../fonts/proximanova-regularitalic-webfont.ttf') format('truetype'),
+       url('../fonts/proximanova-regularitalic-webfont.svg#proxima_novaregular_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   Custom Icons
+   ========================================================================== */
+.balkony {
+  content: url('../images/icons/balcony.ico');
+}
+.guest {
+  content: "\f007";
+  color: #ffd700;
+}
+.guests {
+  content: "\f0c0";
+  color: #ffd700;
+}
+.sqm {
+  content: "\f19c";
+  color: #ffd700;
+}
+.baby-cot {
+  content: url('../images/icons/baby-cot.ico');
+}
+.breakfast {
+  content: url('../images/icons/breakfast.ico');
+}
+.conditioning {
+  content: url('../images/icons/conditioning.ico');
+}
+.disabled-access {
+ content: url('../images/icons/disabled-access.ico');
+}
+.dishwasher {
+  content: url('../images/icons/dishwasher.ico');
+}
+.elevator {
+  content: url('../images/icons/elevator.ico');
+}
+.events {
+  content: url('../images/icons/events.ico');
+}
+.familychild {
+  content: url('../images/icons/familychild.ico');
+}
+.fireplace {
+  content: url('../images/icons/fireplace.ico');
+}
+.gym {
+  content: url('../images/icons/gym.ico');
+}
+.hot-tub {
+  content: url('../images/icons/hot-tub.ico');
+}
+.kitchen {
+  content: url('../images/icons/kitchen.ico');
+}
+.lockable {
+  content: url('../images/icons/lockable.ico');
+}
+.parking {
+  content: url('../images/icons/parking.ico');
+}
+.pets {
+  content: url('../images/icons/pets.ico');
+}
+.pool {
+  content: url('../images/icons/pool.ico');
+}
+.sauna {
+  content: url('../images/icons/sauna.ico');
+}
+.smoking {
+  content: url('../images/icons/smoking.ico');
+}
+.towels {
+  content: url('../images/icons/towels.ico');
+}
+.tv {
+  content: url('../images/icons/tv.ico');
+}
+.washerdryer {
+  content: url('../images/icons/washerdryer.ico');
+}
+.wifi {
+  content: url('../images/icons/wifi.ico');
+}
+
+// fontello
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot?98624728');
+  src: url('../fonts/fontello.eot?98624728#iefix') format('embedded-opentype'),
+  url('../fonts/fontello.woff?98624728') format('woff'),
+  url('../fonts/fontello.ttf?98624728') format('truetype'),
+  url('../fonts/fontello.svg?98624728#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+}
+
+.icon-surface:before { content: '\e800'; }
+.icon-occupancy:before { content: '\e801'; }
+.icon-parking:before { content: '\e802'; }
+.icon-handicaped:before { content: '\e803'; }
+.icon-no-handicaped:before { content: '\e804'; }
+.icon-no-parking:before { content: '\e805'; }
+.icon-smoker:before { content: '\e806'; }
+.icon-no-smoker:before { content: '\e807'; }
+.icon-pets:before { content: '\e808'; }
+.icon-no-pets:before { content: '\e809'; }
+.icon-vitroceramic:before { content: '\e80a'; }
+.icon-gas:before { content: '\e80b'; }
+.icon-oven:before { content: '\e80c'; }
+.icon-microwave:before { content: '\e80d'; }
+.icon-nespresso:before { content: '\e80e'; }
+.icon-coffee:before { content: '\e80f'; }
+.icon-fireplace:before { content: '\e810'; }
+.icon-elevator-1:before { content: '\e812'; }
+.icon-hairdryer:before { content: '\e813'; }
+.icon-wifi:before { content: '\e814'; }
+.icon-internet:before { content: '\e815'; }
+.icon-ac:before { content: '\e816'; }
+.icon-heating:before { content: '\e817'; }
+.icon-satellite:before { content: '\e818'; }
+.icon-silverware:before { content: '\e819'; }
+.icon-utils:before { content: '\e81a'; }
+.icon-dishwasher:before { content: '\e81b'; }
+.icon-tv:before { content: '\e81c'; }
+.icon-flat-tv:before { content: '\e81d'; }
+.icon-dryer:before { content: '\e81e'; }
+.icon-washing:before { content: '\e81f'; }
+.icon-pool:before { content: '\e820'; }
+.icon-jacuzzi:before { content: '\e821'; }
+.icon-bbq:before { content: '\e822'; }
+.icon-concierge:before { content: '\e823'; }
+.icon-cleaning:before { content: '\e824'; }
+.icon-restroom:before { content: '\e825'; }
+.icon-bathroom:before { content: '\e826'; }
+.icon-garden:before { content: '\e827'; }
+.icon-views:before { content: '\e828'; }
+.icon-single:before { content: '\e829'; }
+.icon-twin:before { content: '\e82a'; }
+.icon-queen:before { content: '\e82b'; }
+.icon-king:before { content: '\e82c'; }
+.icon-cal-king:before { content: '\e82d'; }
+.icon-couch:before { content: '\e82e'; }
+.icon-sofa-bed:before { content: '\e82f'; }
+.icon-check-out:before { content: '\e830'; }
+.icon-check-in:before { content: '\e831'; }
+.icon-folding-bed:before { content: '\e832'; }

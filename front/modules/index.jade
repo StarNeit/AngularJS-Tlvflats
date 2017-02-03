@@ -1,0 +1,26 @@
+doctype html
+
+html(lang='en', ng-app="tlvflats", ng-cloak, ng-strict-di, md-theme="{{ theme }}", md-theme-watch="true")
+    head
+        title TLV Flats
+        base(href='/')
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+        link(rel="stylesheet", href="/css/vendor.css", type="text/css")
+        link(rel="stylesheet", href="/css/styles.css", type="text/css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons",rel="stylesheet")
+        link(rel="icon", href="/images/favicon.ico", type="image/png")
+
+    body(ng-class = "$state.current.name | expandState", layout='row')
+        sidenav(layout="column")
+
+        .main-container(layout='column', layout-fill, role = 'main')
+            navbar(ng-if="$state.current.name != 'auth'")
+            main(ui-view, layout = 'row')
+
+    script(type="text/javascript").
+        var CONFIG = !{ JSON.stringify(config) };
+    script(type='text/javascript', src='/js/vendor.js')
+    script(type='text/javascript', src='/js/all.js')
+    script(async, defer, src='https://maps.googleapis.com/maps/api/js')

@@ -1,0 +1,56 @@
+{
+	"id": "44d2b3d2-4662-985d-4557-50e8012dd3fc",
+	"name": "tlvflats",
+	"description": "",
+	"order": [
+		"78af97fc-777b-0b78-c405-58eeeb5ff549",
+		"b679e44a-3d31-470e-1010-a671c095ffcb"
+	],
+	"folders": [],
+	"timestamp": 1454351259102,
+	"owner": 0,
+	"remoteLink": "https://www.getpostman.com/collections/a52bb6fdde3ed286903f",
+	"public": false,
+	"requests": [
+		{
+			"id": "78af97fc-777b-0b78-c405-58eeeb5ff549",
+			"headers": "",
+			"url": "tlvflats.loc/api/property/list",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "44d2b3d2-4662-985d-4557-50e8012dd3fc",
+			"data": [],
+			"dataMode": "params",
+			"name": "apartment/list",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1454438280176,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b679e44a-3d31-470e-1010-a671c095ffcb",
+			"headers": "",
+			"url": "tlvflats.loc/api/property/id",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "44d2b3d2-4662-985d-4557-50e8012dd3fc",
+			"data": [],
+			"dataMode": "params",
+			"name": "property/${id}",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1454438535028,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

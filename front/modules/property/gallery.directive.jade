@@ -1,0 +1,15 @@
+ul.carousel(rn-carousel, rn-carousel-index='current', rn-carousel-buffered, rn-carousel-transition = 'zoom', flex = '100', resize-carousel)
+    li(ng-repeat = 'image in photos')
+        .image(ng-style = "{ 'background-image' : 'url(' + image.url + ')' }", ng-click='openFullscreen(current)')
+.previews(flex = '100')
+    btn.btn.btn-preview-nav.left(ng-click="changeCurrent(current - 1)")
+        i.fa.fa-chevron-left
+
+    .images
+        .vis-block(ng-style = "{ 'transform' : 'translateX(' + offset + 'px)', 'width' : photos.length * 192.5 + 'px' }")
+            .img(ng-repeat = 'image in photos', ng-class = "($index == current) ? 'active' : ''", id = '{{ $index }}',
+                 ng-click = "changeCurrent($index)")
+                img(src='{{ ::image.smallUrl }}')
+
+    btn.btn.btn-preview-nav.right(ng-click="changeCurrent(current + 1)")
+        i.fa.fa-chevron-right

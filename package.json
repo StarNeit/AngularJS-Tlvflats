@@ -1,0 +1,45 @@
+{
+  "name": "tlvflats",
+  "version": "0.0.1",
+  "scripts": {
+    "postinstall": "./node_modules/gulp/bin/gulp.js install"
+  },
+  "dependencies": {
+    "angular": "*",
+    "angular-animate": "*",
+    "angular-aria": "*",
+    "angular-carousel": "*",
+    "angular-google-maps": "*",
+    "angular-material": "*",
+    "angular-messages": "*",
+    "angular-permission": "*",
+    "angular-simple-logger": "*",
+    "angular-touch": "*",
+    "angular-ui-router": "*",
+    "angularjs-datepicker": "^0.2.22-beta",
+    "bootstrap": "*",
+    "dotenv": "*",
+    "font-awesome": "*",
+    "gulp": "*",
+    "gulp-babel": "5.3.*",
+    "gulp-concat": "*",
+    "gulp-jade": "*",
+    "gulp-rimraf": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-wrap": "*",
+    "jquery": "*",
+    "jquery-locationpicker": "*",
+    "lodash": "*",
+    "moment": "*",
+    "satellizer": "*",
+    "yargs": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tinedel/tlvflats"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/tinedel/tlvflats"
+}

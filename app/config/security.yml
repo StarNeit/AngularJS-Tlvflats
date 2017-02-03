@@ -1,0 +1,33 @@
+security:
+
+    providers:
+        owners_provider:
+           entity:
+               class: AppBundle:Owner
+               property: login
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            form_login:
+                login_path: /login
+                check_path: /admin/login_check
+            provider: owners_provider
+            logout:
+                path:   /logout
+                target: /
+
+
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+    encoders:
+        AppBundle\Entity\Owner:
+            algorithm: sha512
+            encode_as_base64: false
+            iterations: 1

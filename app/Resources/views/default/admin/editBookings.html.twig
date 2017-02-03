@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('edit_property', {'propertyId': property.id}) }}">Back to property editing</a><br/>
+            <a href="{{ path('import_bookings', {'propertyId': property.id}) }}">Import bookings</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% for room in property.rooms %}
+                <h3>{{ room.title }}</h3>
+                {% for booking in room.bookings %}
+                    {{ booking.guestFirstName }} {{ booking.guestName }} ({{ booking.firstNight }} - {{ booking.lastNight }})
+                    <br/>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

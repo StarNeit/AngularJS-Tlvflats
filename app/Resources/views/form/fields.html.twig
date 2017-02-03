@@ -1,0 +1,46 @@
+{% block app_image_widget %}
+    {% spaceless %}
+        <img src="{{ value }}" {{ block('widget_attributes') }}>
+        {{- block('hidden_widget') -}}
+    {% endspaceless %}
+{% endblock %}
+
+{% block app_channel_property_widget %}
+    {% spaceless %}
+        <tr>
+            <td>{{ form.title.vars.value }}</td>
+            <td>{{ form.address.vars.value }}</td>
+            <td>
+                {{- form_widget(form.title) -}}
+                {{- form_widget(form.property_id) -}}
+                {{- form_widget(form.address) -}}
+                {{- form_widget(form.channel_id) -}}
+            </td>
+        </tr>
+    {% endspaceless %}
+{% endblock %}
+
+{% block app_component_widget %}
+    {% spaceless %}
+        <div class="col-md-4 bordered">
+            <div class="form-group">
+                {{- form_label(form.name) -}}
+                {{- form_errors(form.name) -}}
+                {{- form_widget(form.name) -}}
+            </div>
+            <div class="form-group">
+                {{- form_label(form.size) -}}
+                {{- form_errors(form.size) -}}
+                {{- form_widget(form.size) -}}
+            </div>
+            <div class="form-group" data-prototype="{{ form_widget(form.amenities.vars.prototype)| e('html_attr')}}">
+                {{- form_label(form.amenities) -}}
+
+                {% for amenity in form.amenities %}
+                    <div>{{ form_widget(amenity) }}</div>
+                {% endfor %}
+            </div>
+            {{- form_widget(form.add_amenity) -}}
+        </div>
+    {% endspaceless %}
+{% endblock %}

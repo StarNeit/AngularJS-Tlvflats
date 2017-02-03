@@ -1,0 +1,72 @@
+.property-list(flex = '70', flex-xs = '100', ng-if = '!search.loading')
+    md-card(ng-repeat="property in search.list", id = "{{ ::property.id }}", layout = 'row', layout-sm = 'column', layout-xs = 'column',
+            ng-class = "property.hover ? 'hover' : ''", ng-mouseover = 'search.mouseover(property)', ng-mouseleave = 'search.mouseleave(property)')
+
+        ul.carousel(ng-init = 'property.currentSlide', rn-carousel, resize-carousel, rn-carousel-index='property.currentSlide', rn-carousel-buffered, rn-carousel-transition = 'zoom', flex='nogrow')
+            .control.left(ng-click='property.currentSlide = property.currentSlide-1')
+                i.fa.fa-chevron-left
+            .control.right(ng-click='property.currentSlide = property.currentSlide+1')
+                i.fa.fa-chevron-right
+            li(ng-repeat = 'image in property.images')
+                .image(ng-style = "{ 'background-image' : 'url(' + image.smallUrl + ')' }")
+                .carousel-caption(ng-if = 'property.instant_book')
+                    i.fa.fa-key
+                    p Instant booking
+
+        md-card-content(flex, layout= 'column')
+            md-card-title-text
+                h3.md-title(ui-sref='property({ id : property.id })') {{ ::property.title }}
+                span.md-subhead {{ property.property_places[0].place.name }}
+            p.primary {{ ::property.short_description }}
+
+            ul.overview
+                li
+                    .title
+                        i.icon-occupancy
+                    .body
+                        | {{ ::property.rooms[0].accomodate }} Guests
+
+                li
+                    .title
+                        i.icon-twin
+                    .body
+                        | {{ ::property.rooms[0].bedrooms }} bdrm
+                li
+                    .title
+                        i.icon-bathroom
+                    .body
+                        | {{ ::property.rooms[0].bathrooms }} bath
+                li
+                    .title
+                        i.icon-surface
+                    .body
+                        | {{ ::property.rooms[0].size }} ft&sup2;
+                li
+                    .title
+                        i.icon-garden
+                    .body
+                        | {{ ::property.rooms[0].balkony }} balcony
+                li
+                    .title
+                        i.icon-ac
+                    .body
+                        | Yes
+
+            md-card-footer(ng-init='property.like == false')
+                .price(md-style-color="{'color': 'accent'}") ${{ ::property.rooms[0].display_price }}/night
+
+                md-button.md-raised.md-accent(ui-sref='property({ id : property.id })') BOOK NOW
+                i.fa.md-accent(md-style-color="{'color': 'accent'}", ng-class="property.like ? 'fa-heart' : 'fa-heart-o'", ng-click='property.like = !property.like')
+
+    footer.clearfix(layout = 'row', layout-xs = 'column')
+        include ./../partials/footer.jade
+
+.loading(flex = '100', ng-if='search.loading')
+    i.fa.fa-spin.fa-spinner(md-style-color="{'color': 'accent'}")
+
+.map(layout= 'column', flex='30', hide-xs, ng-if='!search.loading')
+    ui-gmap-google-map(center='search.map.center', zoom='search.map.zoom', bounds="search.map.bounds", options="search.map.options",
+                       ng-if = 'search.showMap', layout-fill)
+        ui-gmap-markers(models='search.list', coords="'self'", events='search.map.events', fit = 'search.map.fit', options="search.map.options")
+            ui-gmap-window(show='search.map.window.show', coords='search.map.window.model', options='search.map.window.options', ng-cloak,
+                           templateurl="'/partials/map-popup.html'", templateParameter='search.map.window.model')

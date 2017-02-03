@@ -1,0 +1,27 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+app_admin:
+    resource: "@AppBundle/Controller/Admin"
+    type:     annotation
+
+app_admin_prices:
+    resource: "@AppBundle/Controller/Admin/Prices"
+    type:     annotation
+
+api:
+    resource: "@AppBundle/Controller/Api"
+    type:     annotation
+    defaults: {_format: json}
+
+logout:
+    path: "/logout"
+
+home:
+    path: "/{url}"
+    defaults:
+        _controller: AppBundle:Default:index
+        url: index
+    requirements:
+        url: ".+"

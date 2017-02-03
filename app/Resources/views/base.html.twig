@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="{{ asset('js/adminvendor.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <base href="/">
+    {% block header %}{% endblock %}
+    <script>
+        $(function(){
+            $('.dangerous').click(function(e) {
+                if(!confirm("You are about to "+$(this).text()+". This action is final. Continue?")) {
+                    e.preventDefault();
+                    return false;
+                }
+            })
+        })
+    </script>
+    <style>
+        .navbar-xl {
+            min-height: 70px;
+            height: 70px;
+        }
+
+        .navbar-xl .navbar-brand {
+            padding: 12px 12px;
+            font-size: 16px;
+        }
+
+        .navbar-xl .navbar-nav > li > a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 48px;
+        }
+
+        .navbar-xl .navbar-nav > .active > a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 48px;
+            border-bottom: solid;
+            border-bottom-color: #0160A5
+        }
+
+        .navbar-xl .navbar-form { padding-top: 0; padding-bottom: 10px; line-height: 48px; }
+        .navbar-xl { background-color: #FFFFFF; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-xl" id="header">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ path('admin_main') }}">
+                <img alt="Brand" src="/images/logo.png" style="max-height: 70px;">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                {{ flashMessage }}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="row">
+            <div class="alert alert-info" role="alert">
+                {{ flashMessage }}
+            </div>
+        </div>
+    {% endfor %}
+    {% block body %}{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <script type="application/javascript" lang="javascript">
+        var data = {{ json }};
+    </script>
+    <style type="text/css">
+        .nonsearchable {
+            color: #33B7B2;
+            text-decoration: line-through;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+    <div class="col-md-12">
+        <a href="{{ path('admin_main') }}">Back to main</a>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_label(form.name, 'Name:') }}
+                {{ form_errors(form.name) }}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.type, 'Type:') }}
+                {{ form_errors(form.type) }}
+                {{ form_widget(form.type, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.parent, 'Parent:') }}
+                {{ form_errors(form.parent) }}
+                {{ form_widget(form.parent, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.searchable, 'Searchable:') }}
+                {{ form_errors(form.searchable) }}
+                {{ form_widget(form.searchable, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>Entries <span class="nonsearchable">marked like this</span> won't be suggested to user</p>
+            {% for place in data %}
+                <a href="{{ path('edit_places', {'placeId': place.id}) }}" {% if not place.searchable %} class="nonsearchable"{% endif %}>{{ place.full_name }}</a>&nbsp;|&nbsp;
+                <a href="{{ path('remove_place', {'placeId':place.id}) }}" class="dangerous">Delete</a><br/>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

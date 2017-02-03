@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block header %}
+    <script type="application/javascript">
+        $(function () {
+            $('#form_file').change(function () {
+                $('#upload_form').submit();
+            });
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('edit_property', {'propertyId': property.id}) }}">Back to property editing</a>
+        </div>
+        <div class="spacer30"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(form, {'attr':{'id': 'upload_form'}}) }}
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.file, 'Select image to upload') }}
+                {{ form_errors(form.file) }}
+                {{ form_widget(form.file, {'attr': { 'accept':'image/*'}}) }}
+            </div>
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class="spacer30"></div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(formImages, {'attr': {'class':'form'}}) }}
+            {{ form_errors(formImages) }}
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_widget(formImages.save, {'attr': {'class': 'btn btn-default' }}) }}
+                    {{ form_widget(formImages.generate_thumbnails, {'attr': {'class': 'btn btn-default' }}) }}
+                    {{ form_widget(formImages.remove_all, {'attr': {'class': 'btn btn-default dangerous' }}) }}
+                </div>
+            </div>
+            <div class="row">
+            {% for image in formImages.images %}
+                <div class="col-md-3">
+                    <div class="spacer15"></div>
+                    {{ form_label(image.description, 'Description') }}
+                    {{ form_errors(image.description) }}
+                    {{ form_widget(image.description) }}
+                    <div class="spacer10"></div>
+                    {{ form_errors(image.remove) }}
+                    {{ form_widget(image.remove) }}
+                    {{ form_label(image.remove, 'Remove') }}
+                    <div class="spacer10"></div>
+                    {{ form_errors(image.regenerate_thumbnail) }}
+                    {{ form_widget(image.regenerate_thumbnail) }}
+                    {{ form_label(image.regenerate_thumbnail, 'Regenerate thumbnails') }}
+                    <div class="spacer10"></div>
+                    {{ form_widget(image.url, {'attr':{'class':'img-responsive'}}) }}
+                </div>
+            {% endfor %}
+            </div>
+            <div class="spacer10"></div>
+            <div class="row">
+                <div class="col-md-2">
+                    {{ form_widget(formImages.save_bottom, {'attr': {'class': 'btn btn-default' }}) }}
+                </div>
+            </div>
+            {{ form_end(formImages) }}
+        </div>
+    </div>
+{% endblock %}

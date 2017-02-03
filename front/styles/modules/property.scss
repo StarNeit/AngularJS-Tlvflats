@@ -1,0 +1,396 @@
+@import './../variables';
+
+/* ==========================================================================
+   Property page styles
+   ========================================================================== */
+
+body.property {
+  .gallery {
+    margin: 15px 0;
+    padding: 3px;
+    background-color: #d3d3d3;
+    overflow: hidden;
+
+    .carousel {
+      margin: 0;
+      li {
+        width: 100%;
+        height: 100%;
+      }
+      .image {
+        background-position: center center;
+        height: 100%;
+        background-size: cover;
+      }
+    }
+    .previews {
+      height: 115px;
+      overflow: hidden;
+
+      .btn-preview-nav {
+        width: 3%;
+        height: 100%;
+        background-color: #d3d3d3;
+        border-radius: 0;
+        color: #fff;
+        margin: 5px 0;
+        line-height: 115px;
+        padding: 0;
+        &.left {
+          float: left;
+        }
+
+        &.right {
+          float: right;
+        }
+
+        &:hover {
+          background-color: darken(#d3d3d3, 15%);
+          color: #fff;
+        }
+      }
+      .images {
+        overflow: hidden;
+        width: 94%;
+
+        float: left;
+        .vis-block {
+          transition: 0.2s ease-out;
+        }
+        .img {
+          opacity: 0.6;
+          transition: ease 0.15s;
+          cursor: pointer;
+          margin: 5px 10px;
+          float: left;
+          height: 115px;
+          width: 172.5px;
+          img {
+            border: 2px solid #fff;
+            width: 100%;
+            height: 100%;
+          }
+
+          &:hover, &.active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .property {
+    .info {
+      padding-right: 10px;
+
+      md-card {
+        background-color: #fff;
+        border: 1px solid #d3d3d3;
+        border-radius: 0;
+        margin: 0;
+
+        .md-title {
+          font-weight: bold;
+          text-transform: uppercase;
+          padding: 0;
+          line-height: 40px;
+          .md-icon-button {
+            float: right;
+          }
+        }
+
+        md-card-actions {
+          margin: 0;
+          padding: 0;
+          min-height: 64px;
+
+          .sticky-nav {
+            width: 100%;
+            position: relative;
+            min-height: 60px;
+            z-index: 2;
+          }
+
+          .md-toolbar-tools {
+            width: 100%;
+            padding: 0;
+            border: 1px solid #d3d3d3;
+            border-left: 0;
+            border-right: 0;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.85);
+            .md-button {
+              height: 40px;
+              line-height: 40px;
+              margin: 0;
+              border-radius: 0;
+              box-shadow: none;
+              &:hover {
+                background-color: darken(rgb(76,175,80), 15%);
+              }
+            }
+          }
+        }
+
+        md-card-content {
+          .md-subhead {
+            font-weight: bold;
+            line-height: 20px;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: #777;
+          }
+
+        }
+        md-card-content.summary {
+          ul {
+            width: 100%;
+            padding: 10px 0;
+            border-bottom: 1px solid #d3d3d3;
+            margin: 0;
+            li {
+              float: left;
+              box-sizing: border-box;
+              padding: 10px;
+            }
+
+            &.overview li {
+              text-align: center;
+              display: table-cell;
+              border-left: 1px solid;
+              border-color: rgba(211, 211, 211, 0.6);
+              font-weight: 100;
+              position: relative;
+              i {
+                float: left;
+                font-size: 36px;
+                text-align: center;
+                margin: 0 30%;
+                color: #82888a;
+                width: 40%;
+              }
+              &:first-child, &:nth-child(7) {
+                border-left: none;
+              }
+              .title {
+                color: #5e5e5e;
+                margin: 4px;
+              }
+              .body {
+                margin: 5px;
+              }
+            }
+
+            &.amenities {
+              border-bottom: 0;
+              padding-bottom: 0;
+              li {
+                box-sizing: border-box;
+                display: inline-block;
+                padding: 10px 10px 10px 60px;
+                position: relative;
+                text-transform: capitalize;
+                i {
+                  position: absolute;
+                  top: 6px;
+                  left: 30px;
+                }
+              }
+            }
+          }
+        }
+
+        md-card-content.rooms {
+          md-card {
+            background: linear-gradient(to bottom, #F9F9F9 0%, #fff 100%);
+            margin: 5px;
+            cursor: pointer;
+
+            .md-headline {
+              text-align: left;
+              color: #777;
+              font-size: 15px;
+              line-height: inherit;
+            }
+            md-card-title-media {
+              background-color: #777;
+            }
+            .md-subhead {
+
+            }
+
+            md-card-actions {
+              label {
+                border-radius: 15px;
+                margin: 3px;
+              }
+            }
+            &:hover {
+              box-shadow: 0 0 10px 0 #e5e5e5;
+            }
+          }
+        }
+
+        md-card-content.map {
+          .angular-google-map-container {
+            height: 600px;
+          }
+          .map-popup {
+            text-align: center;
+            .title {
+              font-weight: bold;
+              padding: 0;
+            }
+          }
+        }
+
+        md-card-content.conditions {
+          .column {
+            padding: 15px;
+            strong {
+              color: #212121;
+              text-transform: uppercase;
+            }
+            dl {
+              margin-bottom: 10px;
+              padding-bottom: 30px;
+              height: 20px;
+              display: block;
+              border-bottom: 1px solid #e5e5e5;
+              font-size: 14px;
+              dd {
+                float: left;
+                color: #70747c;
+              }
+              dt {
+                float: right;
+              }
+            }
+          }
+        }
+
+        md-card-content.reviews {
+          .review {
+            border-bottom: 1px solid #e5e5e5;
+            .header {
+              padding: 0;
+              font-size: 12px;
+              .avatar {
+                float: left;
+                margin-right: 15px;
+                border-radius: 50%;
+                overflow: hidden;
+              }
+              .name {
+                font-weight: bold;
+              }
+              .rating span {
+                font-size: 15px;
+                color: $secondary-color;
+              }
+            }
+            .body {
+              p {
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .beds {
+    top: 0; right: 0;
+
+    md-card {
+      background-color: #fff;
+      border: 1px solid #d3d3d3;
+      border-radius: 0;
+      margin: 0;
+
+      md-card-header-text {
+        .md-title {
+          font-weight: bold;
+          text-transform: uppercase;
+          padding: 0;
+          line-height: 40px;
+
+          .price {
+            float: right;
+            font-weight: bold;
+          }
+        }
+      }
+
+      md-card-content {
+        padding: 10px;
+
+        .form-group {
+          position: relative;
+
+          .fa, [class^="icon-"], .material-icons {
+            position: absolute;
+            width: 50px;
+            margin: 10px 0;
+            line-height: 30px;
+            color: lightgray;
+            text-align: center;
+            font-size: 20px;
+            left: 0;
+            top: 0;
+            border-right: 1px solid #dedede;
+          }
+
+          input {
+            background-color: #fff;
+            border: 1px solid #dedede;
+            color: #5d5d5d;
+            position: relative;
+            cursor: pointer;
+            padding-left: 60px;
+            height: 50px;
+            border-radius: 0;
+            box-shadow: none;
+            width: 100%;
+            &:focus {
+              box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+            }
+          }
+          .caret {
+            position: absolute;
+            top: 25px;
+            right: 12px;
+            color: lightgray;
+          }
+        }
+      }
+
+      md-card-footer {
+        .md-button {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md) {
+  .container {
+    padding: 0;
+    width: 100% !important;
+    .gallery {
+      margin-top: 0 !important;
+    }
+
+    md-card md-card-content {
+      padding: 10px;
+    }
+  }
+
+}

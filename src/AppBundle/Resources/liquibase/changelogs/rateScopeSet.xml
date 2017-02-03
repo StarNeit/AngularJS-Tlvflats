@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet author="tinedel (generated)" id="1456593316874-9">
+        <createTable tableName="rate_scope">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="rate_scope_set_id" type="INT"/>
+            <column name="display_name" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="min_days" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="tinedel (generated)" id="1456593316874-10">
+        <createTable tableName="rate_scope_set">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="owner_id" type="INT"/>
+            <column name="name" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="tinedel (generated)" id="1456593316874-24">
+        <addForeignKeyConstraint baseColumnNames="rate_scope_set_id" baseTableName="rate_scope" baseTableSchemaName="tlvflats" constraintName="FK_90EF4CF0E2E8ABFF" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="rate_scope_set" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="tinedel (generated)" id="1456593316874-25">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="rate_scope_set" baseTableSchemaName="tlvflats" constraintName="FK_7D7022427E3C61F9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="owner" referencedTableSchemaName="tlvflats" referencesUniqueColumn="false"/>
+    </changeSet>
+
+    <changeSet id="defaultDataForScopes" author="tinedel">
+        <insert tableName="rate_scope_set">
+            <column name="owner_id"/>
+            <column name="name">default</column>
+        </insert>
+        <insert tableName="rate_scope">
+            <column name="rate_scope_set_id">1</column>
+            <column name="display_name" type="LONGTEXT">1 day</column>
+            <column defaultValueNumeric="1" name="min_days" type="INT">1</column>
+        </insert>
+        <insert tableName="rate_scope">
+            <column name="rate_scope_set_id">1</column>
+            <column name="display_name" type="LONGTEXT">2 days</column>
+            <column defaultValueNumeric="1" name="min_days" type="INT">2</column>
+        </insert>
+        <insert tableName="rate_scope">
+            <column name="rate_scope_set_id">1</column>
+            <column name="display_name" type="LONGTEXT">5 days</column>
+            <column defaultValueNumeric="1" name="min_days" type="INT">5</column>
+        </insert>
+        <insert tableName="rate_scope">
+            <column name="rate_scope_set_id">1</column>
+            <column name="display_name" type="LONGTEXT">1 week</column>
+            <column defaultValueNumeric="1" name="min_days" type="INT">7</column>
+        </insert>
+        <insert tableName="rate_scope">
+            <column name="rate_scope_set_id">1</column>
+            <column name="display_name" type="LONGTEXT">2 weeks</column>
+            <column defaultValueNumeric="1" name="min_days" type="INT">14</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

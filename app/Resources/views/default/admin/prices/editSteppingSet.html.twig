@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if rateSteppingSet.owner %}
+                <a href="{{ path('index_rate_steppings', {'ownerId': rateSteppingSet.owner.id}) }}">Back to rate steppings</a>
+            {% else %}
+                <a href="{{ path('index_rate_steppings') }}">Back to rate steppings</a>
+            {% endif %}
+            <h3>Rate steppings</h3>
+            <div class="col-md-6">
+                {{ form_start(form, {'attr': {'class':'form'}}) }}
+                {{ form_errors(form) }}
+                <div class="form-group">
+                    {{ form_label(form.name, 'Name') }}
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control' }}) }}
+                </div>
+                <table class="table table-bordered" id="table">
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                    {% for rateStepping in form.rateSteppings %}
+                        <tr>
+                            <td>
+                                {{ form_errors(rateStepping.name) }}
+                                {{ form_widget(rateStepping.name) }}
+                            </td>
+                            <td>
+                                {{ form_widget(rateStepping.remove, {'attr': {'class': 'btn' }}) }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr id="addButtonRow">
+                        <td colspan="2">
+                            <button id="add" class="btn">Add</button>
+                        </td>
+                    </tr>
+                </table>
+                {{ form_widget(form.save, {'attr': {'class': 'btn btn-default' }}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block header %}
+    <script type="application/javascript" language="JavaScript">
+
+        var template='<td><div><input type="text" id="form_rateSteppings___name___name" name="form[rateSteppings][__name__][name]" required="required" /></td><td></td>';
+
+        $(document).ready(function(){
+            var rateSteppingsCount = '{{ form.rateSteppings|length }}';
+
+
+            $('#add').click(function(e){
+                e.preventDefault();
+                var newWidget = template.replace(/__name__/g, rateSteppingsCount);
+                rateSteppingsCount++;
+                var table = $('#table');
+
+                var newElem = $('<tr></tr>').html(newWidget);
+                newElem.insertBefore($("#addButtonRow"));
+            })
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('admin_main') }}">Back to admin page</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_label(form.name, 'Name:') }}
+                {{ form_errors(form.name) }}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.dateEstablished, 'Date established:') }}
+                {{ form_errors(form.dateEstablished) }}
+                {{ form_widget(form.dateEstablished, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.dateJoined, 'Date joined:') }}
+                {{ form_errors(form.dateJoined) }}
+                {{ form_widget(form.dateJoined, {'attr': {'class': 'form-control' }}) }}
+            </div>
+
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

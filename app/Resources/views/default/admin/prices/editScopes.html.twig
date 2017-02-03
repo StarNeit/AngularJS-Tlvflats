@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('admin_main') }}">Back to main admin page</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Rate scope sets:</h3>
+            {% for scopeSet in rateScopeSets %}
+                <a href="{{ path('edit_rate_scope_set', {'rateScopeSetId':scopeSet.id}) }}">{{ scopeSet.name }}</a><br/>
+            {% endfor %}
+            <a href="{{ path('edit_rate_scope_set', {'rateScopeSetId':'new'}) }}">Add scope set</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,263 @@
+.container(layout = 'column')
+    .gallery#photos(gallery, photos = 'self.property.images', flex = '100', layout = 'column')
+
+    .property(flex = '100', layout = 'row', layout-xs='column', layout-sm='column')
+        .info(flex = '70', flex-xs='100', flex-sm='100')
+            md-card
+                md-card-header
+                    md-card-header-text(ng-init='self.property.like = false')
+                        span.md-title {{ ::self.property.title}}
+                            md-button.md-primary.md-icon-button(aria-label="Custom Icon Button", ng-click='self.property.like = !self.property.like')
+                                md-icon: i.material-icons {{ self.property.like ? 'favorite' : 'favorite_border' }}
+
+
+                md-card-actions(fix-on-scroll, fix-pd-top = '60')
+                    .sticky-nav
+                        md-toolbar.nav
+                            .md-toolbar-tools(layout = 'row', layout-wrap, highlight-on-scroll='md-focused')
+                                md-button.md-raised.md-accent(flex = '20', flex-xs ='33', aria-label='Photos', ng-click="self.scrollTo('photos')")
+                                    | Photos
+                                md-button.md-raised.md-accent(flex = '20', flex-xs ='33', aria-label='Overview', ng-click="self.scrollTo('overview')")
+                                    | Overview
+                                md-button.md-raised.md-accent(flex = '20', flex-xs ='33', aria-label='Map', ng-click="self.scrollTo('map')")
+                                    | Map
+                                md-button.md-raised.md-accent(flex = '20', flex-xs ='50', aria-label='Conditions', ng-click="self.scrollTo('conditions')")
+                                    | Conditions
+                                md-button.md-raised.md-accent(flex = '20', flex-xs ='50', aria-label='Photos', ng-click="self.scrollTo('reviews')")
+                                    | Reviews
+
+                md-card-content.summary#overview
+                    ul.overview(layout='row', layout-wrap, layout-fill)
+                        li(flex='16')
+                            .title
+                                i.icon-occupancy
+                            .body
+                                | {{ ::self.property.rooms[0].accomodate }} Guests
+
+                        li(flex='16')
+                            .title
+                                i.icon-twin
+                            .body
+                                | {{ ::self.property.rooms[0].bedrooms }} Bedrooms
+                        li(flex='16')
+                            .title
+                                i.icon-bathroom
+                            .body
+                                | {{ ::self.property.rooms[0].bathrooms }} Bathrooms
+                        li(flex='16')
+                            .title
+                                i.icon-surface
+                            .body
+                                | {{ ::self.property.rooms[0].size }} ft&sup2;
+                        li(flex='16')
+                            .title
+                                i.icon-garden
+                            .body
+                                | {{ ::self.property.rooms[0].balkony }} Balcony
+                        li(flex='16')
+                            .title
+                                i.fa.fa-building-o
+                            .body
+                                | {{ ::self.property.rooms[0].floor }} Floor
+
+                    ul.amenities(layout='row', layout-wrap, layout-fill)
+                        li(ng-repeat='feature in self.property.property_features', flex='25', flex-sm = '33', flex-xs='50')
+                            i(ng-class='feature.feature.icon')
+                            span {{feature.feature.name}}
+
+                md-divider
+
+                md-card-content.rooms(layout = 'row', layout-wrap)
+                    md-card(flex = '32')
+                        md-card-title
+                            md-card-title-text
+                                span.md-headline Living room
+                                span.md-subhead 15ft&sup2;
+                            md-card-title-media
+                                img.md-media-sm.card-media(src='images/temp/12.jpg')
+
+                        md-card-actions(layout='row', layout-align='end center')
+                            label.label.label-success
+                                | TV 40"
+                            label.label.label-success
+                                | Bed 160"
+                    md-card(flex = '32')
+                        md-card-title
+                            md-card-title-text
+                                span.md-headline Living room
+                                span.md-subhead 15ft&sup2;
+                            md-card-title-media
+                                img.md-media-sm.card-media(src='images/temp/12.jpg')
+
+                        md-card-actions(layout='row', layout-align='end center')
+                            label.label.label-success
+                                | TV 40"
+                            label.label.label-success
+                                | Bed 160"
+
+                    md-card(flex = '32')
+                        md-card-title
+                            md-card-title-text
+                                span.md-headline Bedroom 1
+                                span.md-subhead 15ft&sup2;
+                            md-card-title-media
+                                img.md-media-sm.card-media(src='images/temp/12.jpg')
+
+                        md-card-actions(layout='row', layout-align='end center')
+                            label.label.label-success
+                                | TV 40"
+                            label.label.label-success
+                                | Bed 160"
+
+                    md-card(flex = '32')
+                        md-card-title
+                            md-card-title-text
+                                span.md-headline Bedroom 2
+                                span.md-subhead 15ft&sup2;
+                            md-card-title-media
+                                img.md-media-sm.card-media(src='images/temp/12.jpg')
+
+                        md-card-actions(layout='row', layout-align='end center')
+                            label.label.label-success
+                                | TV 40"
+                            label.label.label-success
+                                | Bed 160"
+
+                    md-card(flex = '32')
+                        md-card-title
+                            md-card-title-text
+                                span.md-headline Bedroom 3
+                                span.md-subhead 15ft&sup2;
+                            md-card-title-media
+                                img.md-media-sm.card-media(src='images/temp/12.jpg')
+
+                        md-card-actions(layout='row', layout-align='end center')
+                            label.label.label-success
+                                | TV 40"
+                            label.label.label-success
+                                | Bed 160"
+
+                    md-card(flex = '32')
+                        md-card-title
+                            md-card-title-text
+                                span.md-headline Terrace
+                            md-card-title-media
+                                img.md-media-sm.card-media(src='images/temp/12.jpg')
+
+                        md-card-actions(layout='row', layout-align='end center')
+                            label.label.label-success
+                                | Outdoor furniture
+
+                md-divider
+
+                md-card-content.description
+                    h2.md-subhead Description
+                    p(ng-bind-html="self.property.long_description")
+
+                    h2.md-subhead Location
+                    p Very interesting area, near the beach, shops close by, many restaurants.
+
+                md-divider
+
+                md-card-content.map#map
+                    h2.md-subhead Map
+
+                    ui-gmap-google-map(center='self.map.center', zoom='self.map.zoom', bounds="self.map.bounds", ng-if = 'self.showMap', options="self.map.options")
+                        ui-gmap-markers(models='self.map.markers', coords="'self'", events='self.map.events', fit = 'self.map.fit', options="self.map.options")
+                            ui-gmap-windows(show='self.show')
+                                div.map-popup(ng-non-bindable='')
+                                    p.title {{ ::title }}
+                                    p {{ ::address }}
+
+                md-divider
+
+                md-card-content.conditions#conditions
+                    h2.md-subhead Conditions
+
+                    .row(layout = 'row')
+                        .column(flex = '50')
+                            dl: dd: strong Prices
+                            dl
+                                dd Weekly rate for up to 2 guests
+                                dt $926 US
+                            dl
+                                dd Monthly rate for up to 2 guests
+                                dt $3400 US
+                            dl
+                                dd Price for > 2 guests
+                                dt $11 US per guest/night extra
+
+                        .column(flex = '50')
+                            dl: dd: strong Details
+                            dl
+                                dd Check-in after
+                                dt 2PM
+
+                    .row(layout = 'row')
+                        .column(flex = '50')
+                            dl
+                                dd Address
+                                dt {{ self.property.address }}
+                            dl
+                                dd Instant Book
+                                dt {{ self.property.instant_book ? 'Yes' : 'No' }}
+                            dl
+                                dd Single Room
+                                dt {{ self.property.single_room ? 'Yes' : 'No' }}
+
+                        .column(flex = '50')
+                            dl: dd: strong Extra Services
+                            dl
+                                dd Additional Full Cleaning
+                                dt $120
+                            dl
+                                dd Transportation to airport
+                                dt $50
+                            dl
+                                dd Basic Groceries
+                                dt $20
+
+                md-divider
+
+                md-card-content.reviews#reviews
+                    h2.md-subhead Reviews
+
+                    .review
+                        .header.clearfix
+                            .avatar
+                                img(ng-src='http://c50039.r39.cf3.rackcdn.com/uploads/avatar/file/2657445/sixty_FullSizeRender.jpg')
+                            .name
+                                a(title='DAVID') DAVID
+                            .rating(ng-init='rating = 4')
+                                uib-rating(ng-model='rating', max='5', readonly='isReadonly')
+                            .date
+                                | December 2015
+                        .body
+                            p Fue una estancia agradable. No es lujo lo que encontrar&eacute;is pero cumple con las expectativas.
+
+        .beds(flex = '30', flex-xs='100', flex-sm='100', fix-on-scroll, fix-pd-top = '60', fix-when = '945')
+            md-card
+                md-card-header
+                    md-card-header-text
+                        span.md-title Per Night
+                            span.price(md-style-color="{'color': 'accent'}") ${{ self.property.rooms[0].display_price }}/night
+
+                md-card-content(layout='row')
+                    .datepicker(flex = '50')
+                        label Date from
+                        .form-group
+                            datepicker(date-format="dd-MM-yy")
+                                input(ng-model="self.filters.dateFrom", type="text", ng-change="self.changeDate(self.filters.dateFrom, 'dateTo', 1)")
+                            i.material-icons event
+
+
+                    .datepicker(flex = '50')
+                        label Date to
+                        .form-group
+                            datepicker(date-format="dd-MM-yy")
+                                input(ng-model="self.filters.dateTo", type="text")
+                            i.material-icons event
+
+                    span.total(ng-if = 'self.totalPrice && self.totalPrice != 0') ${{ self.totalPrice }} Total
+                md-card-footer
+                    md-button.md-raised.md-accent Request

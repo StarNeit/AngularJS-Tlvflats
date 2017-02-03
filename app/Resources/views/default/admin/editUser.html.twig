@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('admin_main') }}">Back to admin main</a><br/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(form, {'attr': {'id': 'mainForm' }}) }}
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.login, 'Login:') }}
+                {{ form_errors(form.login) }}
+                {{ form_widget(form.login, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.passHash, 'Password:') }}
+                {{ form_errors(form.passHash) }}
+                {{ form_widget(form.passHash, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.apiKey, 'apiKey') }}
+                {{ form_errors(form.apiKey) }}
+                {{ form_widget(form.apiKey, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="checkbox">
+                {{ form_errors(form.admin) }}
+                <label>
+                    {{ form_widget(form.admin) }} Admin
+                </label>
+            </div>
+
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    {% if user.id %}
+    <div class="row">
+        <div class="col-md-12">
+            <h3>User emails:</h3>
+            <p><a href="{{ path('edit_user', {'userId':user.id, 'checkEmails':'true'}) }}">Check emails</a></p>
+            <table class="table">
+                <thead><tr>
+                    <th>Email</th>
+                    <th>Server</th>
+                    <th>Port</th>
+                    <th>Login</th>
+                    <th>Valid</th>
+                </tr></thead>
+            {% for email in user.emails %}
+                <tr><td><a href="{{ path('edit_user', {'userId':user.id, 'emailId':email.id}) }}">{{ email.email }}</a></td>
+                <td>{{ email.serverHost }}</td>
+                <td>{{ email.serverPort }}</td>
+                <td>{{ email.serverLogin }}</td>
+                <td>{{ email.valid }}</td></tr>
+            {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-4">
+            {{ form_start(emailForm, {'attr': {'id': 'emailForm' }}) }}
+            {{ form_errors(emailForm) }}
+
+            <div class="form-group">
+                {{ form_label(emailForm.email, 'EMail:') }}
+                {{ form_errors(emailForm.email) }}
+                {{ form_widget(emailForm.email, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(emailForm.serverHost, 'Host:') }}
+                {{ form_errors(emailForm.serverHost) }}
+                {{ form_widget(emailForm.serverHost, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(emailForm.serverPort, 'Port:') }}
+                {{ form_errors(emailForm.serverPort) }}
+                {{ form_widget(emailForm.serverPort, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(emailForm.serverLogin, 'Login:') }}
+                {{ form_errors(emailForm.serverLogin) }}
+                {{ form_widget(emailForm.serverLogin, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(emailForm.serverPassword, 'Password:') }}
+                {{ form_errors(emailForm.serverPassword) }}
+                {{ form_widget(emailForm.serverPassword, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="checkbox">
+                {{ form_errors(emailForm.checkOnCreate) }}
+                <label>
+                    {{ form_widget(emailForm.checkOnCreate) }} Validate credentials (will take time)
+                </label>
+            </div>
+
+            {{ form_widget(emailForm.save, {'attr': {'class': 'btn btn-default' }}) }}{{ form_widget(emailForm.remove, {'attr': {'class': 'btn btn-cancel' }}) }}
+            {{ form_end(emailForm) }}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

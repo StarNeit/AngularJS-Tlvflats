@@ -1,0 +1,22 @@
+$root: "./../../..";
+$modules: "${root}/node_modules";
+$fonts-folder: "${root}/front/fonts";
+
+$screen-sm: 600px;
+$screen-md: 960px;
+$screen-lg: 1280px;
+$screen-xl: 1920px;
+
+$primary-color: #c58401;
+$primary-color-darken: darken($primary-color, 15%);
+$primary-color-lighten: lighten($primary-color, 15%);
+
+$secondary-color: #5D4B7F;
+$secondary-color-darken: darken($secondary-color, 10%);
+$secondary-color-lighten: lighten($secondary-color, 10%);
+
+$third-color: #f7ca5a;
+
+$facebook-color: #3b5998;
+$twitter-color: #4099FF;
+$google-color: #F44336;

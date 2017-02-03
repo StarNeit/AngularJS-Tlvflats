@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('edit_property', {'propertyId': property.id}) }}">Back to property editing</a>
+        </div>
+    </div>
+    <div class="row">
+        <form method="post">
+            {% for feature in features %}
+                {% if propertyFeatures[feature.id] is defined %}
+                    <input type="checkbox" name="checked{{ feature.id }}" {{ propertyFeatures[feature.id] }}><i
+                        class="fa {{ feature.faName }}"></i>&nbsp;{{ feature.name }}<br/>
+                {% else %}
+                    <input type="checkbox" name="checked{{ feature.id }}"><i
+                        class="fa {{ feature.faName }}"></i>&nbsp;{{ feature.name }}<br/>
+                {% endif %}
+            {% endfor %}
+            <input type="submit" name="Submit">
+        </form>
+    </div>
+{% endblock %}

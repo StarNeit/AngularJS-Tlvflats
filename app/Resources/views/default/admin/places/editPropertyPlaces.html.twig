@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+    <div class="row" xmlns="http://www.w3.org/1999/html">
+        <div class="col-md-12">
+            <a href="{{ path('edit_property', {'propertyId' : property.id}) }}">Back to property</a><br/>
+            <a href="{{ path('empty_property_places', {'propertyId' : property.id}) }}" class="dangerous">Empty property
+                places</a><br/>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_label(form.place, 'Place:') }}
+                {{ form_errors(form.place) }}
+                {{ form_widget(form.place, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+                {% for propertyPlace in property.propertyPlaces %}
+                    {{ propertyPlace.place.fullName }}&nbsp;|&nbsp;<a
+                                href="{{ path('remove_property_place', {'propertyId': property.id, 'propertyPlaceId': propertyPlace.id}) }}">Delete</a></br>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

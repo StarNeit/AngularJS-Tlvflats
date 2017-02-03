@@ -1,0 +1,75 @@
+.sign-bg
+    .overlay
+
+.signup-container(ng-init="self.cont = 'signin'")
+    .header
+        a.logo(ui-sref='search')
+            img(src='/images/logo.png', alt='', style='margin-top: -5px;')
+        .slogan
+            | Your smart hotel alternative {{ self.window }}
+
+    .body(ng-if="self.cont == 'signup'")
+        .signup-text
+            span Create an account
+
+        .form-group
+            i.fa.fa-envelope
+            input.form-control(type='text', name='signup_email', placeholder='E-mail')
+        .form-group
+            i.fa.fa-lock
+            input.form-control(type='password', name='signup_password', placeholder='Password')
+        .form-group
+            i.fa.fa-lock
+            input.form-control(type='password', name='signup_password', placeholder='Password once more')
+
+        .form-group
+            label.checkbox-inline
+                input.px(type='checkbox', name='signup_confirm')
+                span.lbl
+                    | I agree with the&nbsp
+                    a(href='#', target='_blank') Terms and Conditions
+            label.checkbox-inline
+                input.px(type='checkbox', name='signup_confirm')
+                span.lbl
+                    | I agree with the&nbsp
+                    a(href='#', target='_blank') Newsletters
+
+        .form-actions
+            btn.btn.signup-btn Sign UP
+
+    .body(ng-if="self.cont == 'signin'")
+        .signup-text
+            span Sign In
+
+        .form-group
+            i.fa.fa-envelope
+            input.form-control(type='text', name='signup_email', placeholder='E-mail')
+        .form-group
+            i.fa.fa-lock
+            input.form-control(type='password', name='signup_password', placeholder='Password')
+
+        .form-actions
+            btn.btn.signup-btn Sign UP
+
+    .signup-text
+        span or
+
+    .signup-with
+        btn.btn.facebook
+            //i.fa.fa-facebook
+            | Sign Up with Facebook
+
+        btn.btn.twitter
+            //i.fa.fa-twitter
+            | Sign Up with Twitter
+
+        btn.btn.google
+            //i.fa.fa-google
+            | Sign Up with Google
+
+.have-account(ng-if = "self.cont == 'signup'")
+    | Already have an account? &nbsp
+    a(ng-click = "self.cont = 'signin'") Sign In!
+.have-account(ng-if = "self.cont == 'signin'")
+    | Not a member? &nbsp
+    a(ng-click="self.cont = 'signup'") Join!

@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('edit_property', {'propertyId': property.id}) }}">Back to property editing</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(form) }}
+            {{ form_widget(form.saveTop, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_label(form.title, 'Title:') }}
+                {{ form_errors(form.title) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.displayPrice, 'Display price:') }}
+                {{ form_errors(form.displayPrice) }}
+                {{ form_widget(form.displayPrice, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.basePrice, 'Base price:') }}
+                {{ form_errors(form.basePrice) }}
+                {{ form_widget(form.basePrice, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.deposit, 'Deposit:') }}
+                {{ form_errors(form.deposit) }}
+                {{ form_widget(form.deposit, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.cleaningFee, 'Cleaning fee:') }}
+                {{ form_errors(form.cleaningFee) }}
+                {{ form_widget(form.cleaningFee, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.roomsAvailable, 'Rooms of this type available:') }}
+                {{ form_errors(form.roomsAvailable) }}
+                {{ form_widget(form.roomsAvailable, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.accomodate, 'Accomodate:') }}
+                {{ form_errors(form.accomodate) }}
+                {{ form_widget(form.accomodate, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.bedrooms, 'Bedrooms:') }}
+                {{ form_errors(form.bedrooms) }}
+                {{ form_widget(form.bedrooms, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.bathrooms, 'Bathrooms:') }}
+                {{ form_errors(form.bathrooms) }}
+                {{ form_widget(form.bathrooms, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.size, 'Size:') }}
+                {{ form_errors(form.size) }}
+                {{ form_widget(form.size, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.floor, 'Floor:') }}
+                {{ form_errors(form.floor) }}
+                {{ form_widget(form.floor, {'attr': {'class': 'form-control' }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.balkony, 'Balkony:') }}
+                {{ form_errors(form.balkony) }}
+                {{ form_widget(form.balkony, {'attr': {'class': 'form-control' }}) }}
+            </div>
+
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Rooms</h3>
+            <p>Put here appartment rooms list and amenities each of it have. Like Big tv in leaving room, or dish-washing machine in the kitchen</p>
+            <p>Please remove name and save changes to remove room or amenity.</p>
+        </div>
+        {{ form_start(componentsForm) }}
+        <div style="min-height: 20px;">&nbsp;</div>
+        <div class="col-md-12">
+            {{ form_widget(componentsForm.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_widget(componentsForm.add_room, {'attr': {'class': 'btn add_room' }}) }}
+        </div>
+        {{ form_errors(componentsForm) }}
+        <div class="form-group"
+             data-prototype="{{ form_widget(componentsForm.components.vars.prototype)| e('html_attr') }}">
+            {% for component in componentsForm.components %}
+                {{ form_widget(component) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block header %}
+    <script type="application/javascript">
+        $(function () {
+            $('body').on('click', '.add_amenity', function () {
+                var collection = $(this).siblings('[data-prototype]');
+                var prot = collection.attr('data-prototype');
+                var cnt = collection.children().length;
+                prot = prot.replace(/__name__label__/g, cnt);
+                prot = prot.replace(/__name__/g, cnt);
+                collection.append(prot);
+            });
+
+            $('body').on('click', '.add_room', function () {
+                var collection = $(this).parent().siblings('[data-prototype]');
+                var prot = collection.attr('data-prototype');
+                var cnt = collection.children().length;
+                prot = prot.replace(/__room__name__label__/g, cnt);
+                prot = prot.replace(/__room__name__/g, cnt);
+                collection.append(prot);
+            });
+
+        })
+    </script>
+{% endblock %}

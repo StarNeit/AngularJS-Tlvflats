@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('admin_main') }}">Back to admin page</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Managing {{ channel.name }}</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ form(formOptions) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(formChannelProperties) }}
+            {{ form_errors(formChannelProperties) }}
+            {{ form_widget(formChannelProperties.saveTop, {'attr': {'class': 'btn btn-default' }}) }}
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Address</th>
+                    <th>Id</th>
+                </tr>
+                {% for channelPropertiesRow in formChannelProperties.channelProperties %}
+                    {{ form_widget(channelPropertiesRow) }}
+                {% endfor %}
+            </table>
+            {{ form_widget(formChannelProperties.save, {'attr': {'class': 'btn btn-default' }}) }}
+            {{ form_end(formChannelProperties) }}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+
+            var chProps = [
+                {% for channelProperty in channelProperties %}
+                {{ channelProperty|json_encode|raw }},
+                {% endfor %}
+            ];
+
+            $(".hint_channel").autocomplete({
+                minLength: 0,
+                source: chProps,
+                focus: function (event, ui) {
+                    $(this).val(ui.item.channelId);
+                    return false;
+                },
+                select: function (event, ui) {
+                    $(this).val(ui.item.channelId);
+
+                    return false;
+                }
+            });
+        });
+    </script>
+{% endblock %}

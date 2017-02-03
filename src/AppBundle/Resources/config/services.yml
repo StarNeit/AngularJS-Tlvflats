@@ -1,0 +1,33 @@
+services:
+    beds24:
+        class:        AppBundle\Service\Beds24
+        arguments:    ["@logger"]
+    booking:
+        class:        AppBundle\Service\BookingService
+        arguments:    ["@logger", "@mailer", "@service_container", "@doctrine.orm.entity_manager", "@beds24"]
+    notify:
+        class:        AppBundle\Service\NotifyService
+        arguments:    ["@logger", "%notify_service.listeners%", "@mailer", "@service_container", "@doctrine.orm.entity_manager", "@beds24", "@booking"]
+    airbnb_listener:
+        class:        AppBundle\Service\AirBnBListener
+        arguments:    ["@logger", "@mailer", "@imap", "@beds24", "@doctrine.orm.entity_manager", "%airbnb_listener.recheck%"]
+    sync_listener:
+        class:        AppBundle\Service\SyncListener
+        arguments:    ["@logger", "@beds24", "@doctrine.orm.entity_manager", "@service_container", "@booking", "@channelservice"]
+    imap:
+        class:        AppBundle\Service\ImapService
+        arguments:    ["@logger"]
+    vardump:
+        class:        AppBundle\Service\TVarDumper
+    MyTlvChannelService:
+        class:        AppBundle\Service\Channels\MyTlvChannelService
+        arguments:    ["@logger", "@doctrine.orm.entity_manager", "%mytlv.endpoint%"]
+    ChannelService:
+        class:        AppBundle\Service\Channels\ChannelService
+        arguments:    ["@logger", "@service_container", "@doctrine", "%channel.services%"]
+    cron:
+        class:        AppBundle\Service\CronService
+        arguments:    ["@logger", "@service_container", "@doctrine", "%cron.tasks%"]
+    CheckPullChannels:
+        class:        AppBundle\Service\Channels\CheckPullChannels
+        arguments:    ["@logger", "@service_container", "@doctrine", "@booking", "@sync_listener", "%channel.services%"]

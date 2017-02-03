@@ -1,0 +1,20 @@
+md-toolbar.menu
+    .md-toolbar-tools
+        md-button.md-icon-button(ng-click="self.toggleSidenav()", aria-label = 'Left Menu', ng-hide = "self.$mdMedia('gt-md') || $state.current.name != 'search'")
+            md-icon
+                i.material-icons(ng-if='!self.isOpenSidenav()') menu
+                i.material-icons(ng-if='self.isOpenSidenav()') arrow_back
+
+        .header
+            img(src='images/logo.png', alt='TLV FLATS', ui-sref='search', ng-click='self.isOpenSidenav()')
+
+        span(flex)
+        .navigation(ng-hide = "self.$mdMedia('xs')")
+            md-button(ui-sref-active = 'md-raised md-accent', ui-sref = 'search')
+                | Search
+            md-button(ui-sref-active = 'md-raised md-accent', ui-sref = 'about')
+                | About
+            md-button(ui-sref = 'auth', ng-hide='true')
+                | Login
+            md-button.md-raised.md-accent.list(ui-sref = 'post')
+                | List your property

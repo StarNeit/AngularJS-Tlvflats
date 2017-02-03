@@ -1,0 +1,535 @@
+-- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: tlvflats
+-- ------------------------------------------------------
+-- Server version	5.6.28-0ubuntu0.15.10.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `DATABASECHANGELOG`
+--
+
+DROP TABLE IF EXISTS `DATABASECHANGELOG`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `DATABASECHANGELOG` (
+  `ID` varchar(63) NOT NULL,
+  `AUTHOR` varchar(63) NOT NULL,
+  `FILENAME` varchar(200) NOT NULL,
+  `DATEEXECUTED` datetime NOT NULL,
+  `ORDEREXECUTED` int(11) NOT NULL,
+  `EXECTYPE` varchar(10) NOT NULL,
+  `MD5SUM` varchar(35) DEFAULT NULL,
+  `DESCRIPTION` varchar(255) DEFAULT NULL,
+  `COMMENTS` varchar(255) DEFAULT NULL,
+  `TAG` varchar(255) DEFAULT NULL,
+  `LIQUIBASE` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`,`AUTHOR`,`FILENAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `DATABASECHANGELOG`
+--
+
+LOCK TABLES `DATABASECHANGELOG` WRITE;
+/*!40000 ALTER TABLE `DATABASECHANGELOG` DISABLE KEYS */;
+INSERT INTO `DATABASECHANGELOG` VALUES ('1456586404177-1','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',1,'EXECUTED','3:66b779df30b764395c0b6c76a9b7bb4f','Create Table','',NULL,'2.0.3'),('1456586404177-10','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',10,'EXECUTED','3:8db755e473a84b3b160d85bb700dc064','Create Table','',NULL,'2.0.3'),('1456586404177-11','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',11,'EXECUTED','3:dd382c944792da38b1f78fa2749787f7','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-12','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',12,'EXECUTED','3:9e1d007271b8236196872caae803e7bb','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-13','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',13,'EXECUTED','3:47feb5c4cd48b04afb071f34f4fd1183','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-14','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',14,'EXECUTED','3:517d17fb6587b2a2d3a0cc7a2a459257','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-15','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',15,'EXECUTED','3:5fb681b71a41a25f27aaf4321ffb3154','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-16','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',16,'EXECUTED','3:ca6ceb2fa2ae6f5f5d8b624bffbff0b8','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-17','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:03',17,'EXECUTED','3:9acf218e169dfc25cdee91f73ef82874','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-18','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:03',18,'EXECUTED','3:c50827931c74d233c77b59f803bd4568','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-19','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:03',19,'EXECUTED','3:5a1a76d1b8b0513594d05ffa751d5177','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-2','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',2,'EXECUTED','3:03883ea7aa5afe9ee9216e9b4e1e35ed','Create Table','',NULL,'2.0.3'),('1456586404177-20','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:03',20,'EXECUTED','3:033be38f46ba673682694e64df93b10a','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456586404177-3','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',3,'EXECUTED','3:013d10325f0ddd0335f615f9b0fee422','Create Table','',NULL,'2.0.3'),('1456586404177-4','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',4,'EXECUTED','3:6b317e89bc3b3221629cc4a56291bae1','Create Table','',NULL,'2.0.3'),('1456586404177-5','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',5,'EXECUTED','3:cfd26846410ee7608b1cd4dec203dbda','Create Table','',NULL,'2.0.3'),('1456586404177-6','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',6,'EXECUTED','3:f37912fda1410086fc00bdb123eb4625','Create Table','',NULL,'2.0.3'),('1456586404177-7','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',7,'EXECUTED','3:d8214023ca25e6726e44408b5d891e50','Create Table','',NULL,'2.0.3'),('1456586404177-8','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',8,'EXECUTED','3:faa812035c9a70ba5b46bc1091211b15','Create Table','',NULL,'2.0.3'),('1456586404177-9','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/CreateTables.xml','2016-02-27 16:24:02',9,'EXECUTED','3:c78c170a9ec8a467c4b66f9e05c09308','Create Table','',NULL,'2.0.3'),('1456593316874-10','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateScopeSet.xml','2016-02-27 18:52:59',24,'EXECUTED','3:80935443aa3b95dbe56c53366bf1951f','Create Table','',NULL,'2.0.3'),('1456593316874-11','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateStepping.xml','2016-02-27 18:52:59',27,'EXECUTED','3:5d10977013a5f13a5a33b3ce2c234f93','Create Table','',NULL,'2.0.3'),('1456593316874-12','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateStepping.xml','2016-02-27 18:52:59',28,'EXECUTED','3:3f56437d10cc317fc1d14449948d89e9','Create Table','',NULL,'2.0.3'),('1456593316874-24','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateScopeSet.xml','2016-02-27 18:52:59',25,'EXECUTED','3:8f7b319f6aa2acbfde8754d03b076e16','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456593316874-25','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateScopeSet.xml','2016-02-27 18:52:59',26,'EXECUTED','3:cb57a1af691bf4432abcab42d5f1bd5d','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456593316874-26','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateStepping.xml','2016-02-27 18:52:59',29,'EXECUTED','3:730a834f61207110434a67fb85fb89b5','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456593316874-27','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateStepping.xml','2016-02-27 18:52:59',30,'EXECUTED','3:cc9babc7122f1d5b4ab07d950e7d114f','Add Foreign Key Constraint','',NULL,'2.0.3'),('1456593316874-9','tinedel (generated)','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateScopeSet.xml','2016-02-27 18:52:59',23,'EXECUTED','3:0e26302cb103a7356f5d726da63f22c4','Create Table','',NULL,'2.0.3'),('addBasePrice','tinedel','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/addBasePriceToRoom.xml','2016-02-27 17:08:20',21,'EXECUTED','3:9daa889bebfa5127666af320b56ebc2b','Add Column','',NULL,'2.0.3'),('addRoomsAvail','tinedel','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/addRoomsAvail.xml','2016-02-27 17:13:54',22,'EXECUTED','3:3b1cceefb6e5b4c3927694d046e3b6c5','Add Column','',NULL,'2.0.3'),('defaultDataForScopes','tinedel','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateScopeSet.xml','2016-02-27 19:27:19',31,'EXECUTED','3:a463cfe9bb86d1eb03d3b8db7b18bbf7','Insert Row (x6)','',NULL,'2.0.3'),('initialDataRateStepping','tinedel','/home/tinedel/projects/tlvflats/src/AppBundle/Resources/liquibase/changelogs/rateStepping.xml','2016-02-27 19:27:19',32,'EXECUTED','3:77d0f4cc185005bf1da34ea8437a3e5e','Insert Row (x7)','',NULL,'2.0.3');
+/*!40000 ALTER TABLE `DATABASECHANGELOG` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `DATABASECHANGELOGLOCK`
+--
+
+DROP TABLE IF EXISTS `DATABASECHANGELOGLOCK`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `DATABASECHANGELOGLOCK` (
+  `ID` int(11) NOT NULL,
+  `LOCKED` tinyint(1) NOT NULL,
+  `LOCKGRANTED` datetime DEFAULT NULL,
+  `LOCKEDBY` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `DATABASECHANGELOGLOCK`
+--
+
+LOCK TABLES `DATABASECHANGELOGLOCK` WRITE;
+/*!40000 ALTER TABLE `DATABASECHANGELOGLOCK` DISABLE KEYS */;
+INSERT INTO `DATABASECHANGELOGLOCK` VALUES (1,0,NULL,NULL);
+/*!40000 ALTER TABLE `DATABASECHANGELOGLOCK` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `booking`
+--
+
+DROP TABLE IF EXISTS `booking`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `booking` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `room_id` int(11) DEFAULT NULL,
+  `book_id` int(11) DEFAULT NULL,
+  `unit_id` int(11) DEFAULT NULL,
+  `room_qty` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `first_night` longtext COLLATE utf8_unicode_ci,
+  `last_night` longtext COLLATE utf8_unicode_ci,
+  `num_adult` int(11) DEFAULT NULL,
+  `num_child` int(11) DEFAULT NULL,
+  `guest_title` longtext COLLATE utf8_unicode_ci,
+  `guest_first_name` longtext COLLATE utf8_unicode_ci,
+  `guest_name` longtext COLLATE utf8_unicode_ci,
+  `guest_email` longtext COLLATE utf8_unicode_ci,
+  `guest_phone` longtext COLLATE utf8_unicode_ci,
+  `guest_mobile` longtext COLLATE utf8_unicode_ci,
+  `guest_fax` longtext COLLATE utf8_unicode_ci,
+  `guest_address` longtext COLLATE utf8_unicode_ci,
+  `guest_city` longtext COLLATE utf8_unicode_ci,
+  `guest_postcode` longtext COLLATE utf8_unicode_ci,
+  `guest_country` longtext COLLATE utf8_unicode_ci,
+  `guest_arrival_time` longtext COLLATE utf8_unicode_ci,
+  `guest_voucher` longtext COLLATE utf8_unicode_ci,
+  `guest_comments` longtext COLLATE utf8_unicode_ci,
+  `notes` longtext COLLATE utf8_unicode_ci,
+  `message` longtext COLLATE utf8_unicode_ci,
+  `custom1` longtext COLLATE utf8_unicode_ci,
+  `custom2` longtext COLLATE utf8_unicode_ci,
+  `custom3` longtext COLLATE utf8_unicode_ci,
+  `custom4` longtext COLLATE utf8_unicode_ci,
+  `custom5` longtext COLLATE utf8_unicode_ci,
+  `custom6` longtext COLLATE utf8_unicode_ci,
+  `custom7` longtext COLLATE utf8_unicode_ci,
+  `custom8` longtext COLLATE utf8_unicode_ci,
+  `custom9` longtext COLLATE utf8_unicode_ci,
+  `custom10` longtext COLLATE utf8_unicode_ci,
+  `flag_color` longtext COLLATE utf8_unicode_ci,
+  `flag_text` longtext COLLATE utf8_unicode_ci,
+  `price` double DEFAULT NULL,
+  `deposit` double DEFAULT NULL,
+  `tax` double DEFAULT NULL,
+  `commission` double DEFAULT NULL,
+  `referer` longtext COLLATE utf8_unicode_ci,
+  `referer_editable` longtext COLLATE utf8_unicode_ci,
+  `api_source` longtext COLLATE utf8_unicode_ci,
+  `api_reference` longtext COLLATE utf8_unicode_ci,
+  `booking_time` longtext COLLATE utf8_unicode_ci,
+  `modified` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `IDX_E00CEDDE54177093` (`room_id`),
+  CONSTRAINT `FK_E00CEDDE54177093` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `booking`
+--
+
+LOCK TABLES `booking` WRITE;
+/*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+INSERT INTO `booking` VALUES (1,3,853764,1,1,1,'2016-02-25','2016-03-02',1,0,'','Manfred','Sailer','globalcure@wep.de','+49 1754417148','','','Chamonixstrasse 14','Garmisch-Partenkirchen','82467','de','','','Approximate time of arrival: between 15:00 and 16:00 hours \r\n\r\n\r\nGenius Rate: Standard Rate (3653549)\r\nSmoking Requested','','','','','','','','','','','','','','',791.4,0,0,115.71,'Booking.com','Booking.com','19','906056779','2016-01-26 17:44:24','2016-02-03 14:53:38'),(2,3,883837,1,1,1,'2016-03-03','2016-03-05',2,0,'','Matthias','Zimmermann','Matthias.Zimmermann2@wed.de','017622123896','','','Hauensteinstr. 64','Bad Säckingen','79713','de','','','Approximate time of arrival: between 08:00 and 09:00 hours \r\nYou have a booker that prefers communication by email\r\n\r\n\r\n*** Genius booker ***\r\n\r\n***\r\nGive Genius guests 2 extra hours to check out\r\nPriority early check-in \r\nFree parking – Genius guests will get free parking at the property.\r\nFree WiFi – Genius guests will get free WiFi at the property.\r\n***\r\n\r\nGenius Rate: Standard Rate (3653549)\r\nSmoking Requested','','','','','','','','','','','','','','',317.54,0,0,44.63,'Booking.com','Booking.com','19','481259571','2016-02-05 10:54:20','2016-02-19 14:20:22'),(3,3,875808,1,1,2,'2016-03-08','2016-03-09',2,0,'','ilana','agronik','iagron.689043@guest.booking.com','0547820248','','','נווה אלון','רחובות','','il','','','Approximate time of arrival: between 13:00 and 14:00 hours \nYou have a booker that prefers communication by phone\nהיי. אנחנו חתן וכלה שמגיעים לדירה לצורך התארגנות. יש לי שאלה בעיקר על מראה בחדר שינה אשמח אם תוכלו לחזור אליי ל0547820248 תודה רבה :)\n\nGenius Rate: Standard Rate (3653549)\nSmoking Requested','','','','','','','','','','','','','','',258.4,0,0,35.76,'Booking.com','Booking.com','19','384982265','2016-02-02 20:28:10','2016-02-02 20:28:11'),(4,3,890485,1,1,1,'2016-03-10','2016-03-12',2,0,'','Frank','van de Velde','fvelde.814319@guest.booking.com','01732396954','','','Decksteinerstr. 4','Cologne','50935','de','','','Approximate time of arrival: between 15:00 and 16:00 hours \r\nYou have a booker that prefers communication by email\r\n\r\n\r\n*** Genius booker ***\r\n\r\n***\r\nGive Genius guests 2 extra hours to check out\r\nPriority early check-in \r\nFree parking – Genius guests will get free parking at the property.\r\nFree WiFi – Genius guests will get free WiFi at the property.\r\n***\r\n\r\nGenius Rate: Standard Rate (3653549)\r\nSmoking Requested','','','','','','','','','','','','','','',317.54,0,0,44.63,'Booking.com','Booking.com','19','318755107','2016-02-07 22:40:35','2016-02-17 09:13:09'),(5,3,876013,1,1,0,'2016-03-12','2016-03-12',2,0,'','Inge','Decrop','idecro.216136@guest.booking.com','(32) 498 06 73 98','','','Wijnbergenstraat 116','Kessel-Lo','3010','be','','','You have a booker that prefers communication by email\n\n*** Genius booker ***\n\n***\nGive Genius guests 2 extra hours to check out\nPriority early check-in \nFree parking – Genius guests will get free parking at the property.\nFree WiFi – Genius guests will get free WiFi at the property.\n***\n\nGenius Rate: Standard Rate (3653549)\nSmoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',119.18,0,0,14.88,'Booking.com','Booking.com','19','171560343','2016-02-02 21:51:15','2016-02-04 21:14:46'),(6,3,905290,1,1,0,'2016-03-13','2016-03-18',2,0,'','Polina','Zelekson','pzelek.844878@guest.booking.com','89036073098','','','Poltavskay 35','N.  Novgorod','603105','ru','','','Smoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',820.4,0,0,120.06,'Booking.com','Booking.com','19','189478569','2016-02-11 15:29:52','2016-02-12 17:53:01'),(7,3,932361,1,1,2,'2016-03-20','2016-03-24',2,0,'','Berndt','Burghardt','bburgh.489150@guest.booking.com','0170 2458955','','','Husumer Straße 6','Hamburg','20251','de','','','Approximate time of arrival: between 14:00 and 15:00 hours \nYou have a booker that prefers communication by email\nyou can garantee, that we get the apartment we se on the picts? the one tith the very nice terrace?\nthank you\nSmoking Requested','','','','','','','','','','','','','','',658,0,0,95.7,'Booking.com','Booking.com','19','737514733','2016-02-20 20:24:23','2016-02-20 20:24:23'),(8,3,918750,1,1,2,'2016-03-25','2016-03-27',2,0,'','','Valerie Bryant','valerie-pi7xr59ec1nh79k9@guest.airbnb.com','+380 734 182 675','','','','','','','','','','','','','','','','','','','','','','','',456,0,0,0,'Airbnb.com','Airbnb.com','10','HRRRQ4','2016-02-16 14:50:50','2016-02-16 14:50:52'),(9,3,885799,1,1,2,'2016-03-31','2016-04-04',3,0,'','Alvaro','Vidales','avidal.563012@guest.booking.com','627724269','','','Argensola 10','Madrid','28004','es','','','You have a booker that prefers communication by email\n\nGenius Rate: Standard Rate (3653549)\nSmoking Requested','','','','','','','','','','','','','','',708,0,0,103.2,'Booking.com','Booking.com','19','839903599','2016-02-05 22:21:26','2016-02-05 22:21:26'),(10,3,854460,1,1,1,'2016-04-13','2016-04-19',2,0,'','','Ben Tamir','bentamir@hotmail.com','+44 7810 513233 ','','','','','','','','','','','','','','','','','','','','','','','',967,0,0,0,'micha90210','micha90210','0','','2016-01-26 23:12:56','2016-01-26 23:15:00'),(11,3,515084,1,1,0,'2016-04-22','2016-04-22',3,0,'','SHELLY GRACE','PANES','272820814-tfps.t8h4.r9p4.jxtq@guest.booking.com','0559912628','','','','.','','il','','','Smoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',215.6,0,0,29.34,'Booking.com','Booking.com','19','272820814','2015-07-20 08:27:19','2015-08-22 16:03:38'),(12,3,834204,1,1,0,'2016-05-10','2016-05-19',2,0,'','STANISLAV','ERMOLAEV','sermol.617243@guest.booking.com','+ 79851455813','','','ЛИПЕЦКАЯ УЛ,Д16&#47;14,КВ79','МОСКВА','115404','ru','','','You have a booker that prefers communication by email\n\n\n\nGenius Rate: Standard Rate (3653549)\nSmoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',1644,0,0,243.6,'Booking.com','Booking.com','19','976578863','2016-01-19 10:39:56','2016-02-13 19:51:38'),(13,3,913676,1,1,2,'2016-05-15','2016-05-21',2,0,'','','Zoé Lapert','zoe-jhk5bdukurjzrrlo@guest.airbnb.com','+33 7 77 70 29 00','','','','','','','','','','','','','','','','','','','','','','','',1038,0,0,0,'Airbnb.com','Airbnb.com','10','PYYTPH','2016-02-14 22:39:18','2016-02-14 22:39:20'),(14,3,854455,1,1,1,'2016-05-28','2016-06-05',2,0,'','Rory Donnelly','','dr.r.donnelly@gmail.com','+7 740422338','','','','','','','','','','','','','','','','','','','','','','','',1244,0,0,0,'micha90210','micha90210','0','','2016-01-26 23:10:02','2016-01-26 23:14:08'),(15,3,731640,1,1,0,'2016-06-01','2016-06-06',2,0,'','Julien','MIRAMAND','jmiram.854976@guest.booking.com','0614011452','','','','.','','fr','','','Smoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',1133.6,0,0,167.04,'Booking.com','Booking.com','19','455118422','2015-12-03 18:43:34','2015-12-08 12:22:19'),(16,3,787987,1,1,1,'2016-06-15','2016-06-19',1,0,'','','Beverly Throne','beverley-ann@hotmail.co.uk','','+447999343546','','','','','UK','','','','','','','','','','','','','','','','','',630.5,0,0,0,'micha90210','TripAdvisor','0','','2016-01-07 08:29:17','2016-01-07 08:34:18'),(17,3,888283,1,1,0,'2016-07-18','2016-07-30',2,0,'','Rob','Perton','rperto.801613@guest.booking.com','4389304174','','','5740 Hudson','Cote St. Luc','h4w 2k5','ca','','','*** Genius booker ***\n\n***\nGive Genius guests 2 extra hours to check out\nPriority early check-in \nFree parking – Genius guests will get free parking at the property.\nFree WiFi – Genius guests will get free WiFi at the property.\n***\n\nGenius Rate: Standard Rate (3653549)','Total Cancel Fee USD \n','','','','','','','','','','','','','',2240.66,0,0,333.1,'Booking.com','Booking.com','19','482926728','2016-02-07 01:34:51','2016-02-09 18:14:59'),(18,3,906351,1,1,0,'2016-07-18','2016-07-31',2,0,'','Rob','Perton','rperto.627815@guest.booking.com','4389304174','','','5740 Hudson','Cote St. Luc','h4w 2k5','ca','','','Smoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',2411.48,0,0,358.72,'Booking.com','Booking.com','19','516753843','2016-02-11 22:19:50','2016-02-15 15:10:36'),(19,3,603691,1,1,0,'2016-08-28','2016-09-03',2,0,'','Jean','HERVE','jherve.394533@guest.booking.com','0628570557','','','2 rue Francoeur','Paris','75018','fr','','','*** Genius booker ***\nSmoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',1319.2,0,0,194.88,'Booking.com','Booking.com','19','337806087','2015-09-20 08:14:03','2016-02-06 10:36:05'),(20,3,900089,1,1,0,'2016-09-04','2016-09-21',2,0,'','Lesya','Dobriansky','ldobri.971032@guest.booking.com','+61419311657','','','5 Leawarra Drive','Heathmont','3135','au','','','Approximate time of arrival: between 10:00 and 11:00 hours\nSmoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',3047.6,0,0,454.14,'Booking.com','Booking.com','19','664454341','2016-02-10 12:46:44','2016-02-11 06:59:59'),(21,3,775626,1,1,0,'2016-10-21','2016-10-24',2,0,'','Paul','Buergler','pbuerg.361575@guest.booking.com','+41789191947','','','Geissmattstrasse 58','Luzern','6004','ch','','','*** Genius booker ***\n\n***\nGive Genius guests 2 extra hours to check out\nPriority early check-in \nFree parking – Genius guests will get free parking at the property.\nFree WiFi – Genius guests will get free WiFi at the property.\n***\n\nGenius Rate: Standard Rate (3653549)\nSmoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',724.16,0,0,105.62,'Booking.com','Booking.com','19','748637191','2016-01-01 11:32:09','2016-01-06 19:26:47'),(22,2,888401,1,1,2,'2016-02-20','2016-02-26',1,0,'','','Jean Philippe Maarek','jeanphilip-zsm0tclhy53rsde0@guest.airbnb.com','+33 6 22 24 66 28','','','','','','','19:00','','hello we land on 20 febrary at 17:55 (T3) and we rent a car at the terminal. so we need the parking. thank\'s see you soon. \r\nJPh MAAREK and the family','','','','','','','','','','','','','','',766,0,0,0,'Airbnb.com','Airbnb.com','10','2AYP8J','2016-02-07 03:48:59','2016-02-13 15:02:58'),(23,2,897679,1,1,2,'2016-02-27','2016-03-03',4,0,'','','Season Wang','season-rk46ggq0baybqxgi@guest.airbnb.com','+852 5498 0529','','','','','','','','','','','','','','','','','','','','','','','',727,0,0,0,'Airbnb.com','Airbnb.com','10','WX59ZY','2016-02-09 16:35:35','2016-02-12 14:36:47'),(24,2,910602,1,1,2,'2016-03-11','2016-03-12',6,0,'','jun','xu','jxu.569569@guest.booking.com','13916112052','','','pudong avenue','shanghai','200136','cn','','','Approximate time of arrival: between 00:00 and 01:00 hours the next day. \nYou have a booker that prefers communication by email\nYou have a booker that would like free parking. (based on availability)\nNon Smoking Requested','','','','','','','','','','','','','','',411.6,0,0,57.24,'Booking.com','Booking.com','19','212184140','2016-02-13 17:41:23','2016-02-13 17:41:23'),(25,2,931062,1,1,2,'2016-03-20','2016-03-23',1,0,'','Desmond','Tan','mtnbikerdesmond@yahoo.com.sg','65 828 88218','','','','','','','','','1 queen bed\nNon-Smoking\n','','','','','','','','','','','','','','',520,0,0,0,'Expedia','Expedia','14','633485744','2016-02-20 07:28:48','2016-02-20 07:28:48'),(26,2,840124,1,1,0,'2016-03-24','2016-03-27',4,0,'','Moyseos','Marianna','mmaria.290977@guest.booking.com','+35799535761','','','Leof. Geriou 112','Nicosia','2200','cy','','','*** Genius booker ***\n\n***\nGive Genius guests 2 extra hours to check out\nEarly Check-in Priority\nWelcome drink\nFree WiFi – Genius guests will get free WiFi at the property.\n***\n\nGenius Rate: Standard Rate (3653502)\nNon Smoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',728.4,0,0,104.76,'Booking.com','Booking.com','19','452091952','2016-01-21 09:38:24','2016-02-17 09:00:56'),(27,2,934018,1,1,2,'2016-03-24','2016-03-29',2,0,'','Ruth','Collis','rcolli.645811@guest.booking.com','054 3691765 (in Israel)','','','18 Phipps Hatch Lane, Enfield','London','EN2 0HL','gb','','','Approximate time of arrival: between 16:00 and 17:00 hours \nYou have a booker that prefers communication by email\nNon Smoking Requested','','','','','','','','','','','','','','',934.8,0,0,135.72,'Booking.com','Booking.com','19','146601140','2016-02-21 16:01:43','2016-02-21 16:01:43'),(28,2,807690,1,1,2,'2016-04-03','2016-04-03',6,0,'','Irene','Wang','iwang.247141@guest.booking.com','886989667942','','','5F,19-1 Lane 13, Yung Kang St. Taipei','Taipei','106','tw','','','You have a booker that prefers communication by email\nNon Smoking Requested','','','','','','','','','','','','','','',244,0,0,32.1,'Booking.com','Booking.com','19','204498883','2016-01-15 09:43:06','2016-01-15 09:43:06'),(29,2,781931,1,1,0,'2016-04-06','2016-04-06',2,0,'','Marie','Wilhelmsson','mwilhe.234177@guest.booking.com','+46702546435','','','Malmtorgsgatan 22 A','Karlstad','653 40','se','','','Approximate time of arrival: between 15:00 and 16:00 hours \n\n\n*** Genius booker ***\n\n***\nGive Genius guests 2 extra hours to check out\nEarly Check-in Priority\nWelcome drink\nFree WiFi – Genius guests will get free WiFi at the property.\n***\nNon Smoking Requested','Total Cancel Fee USD \n','','','','','','','','','','','','','',204,0,0,26.1,'Booking.com','Booking.com','19','589445044','2016-01-04 19:36:50','2016-01-05 18:22:44'),(30,2,845927,1,1,2,'2016-04-08','2016-04-08',5,0,'','Gert','Vogel','gvogel.797697@guest.booking.com','0031610142767','','','Zuidhovenlaantje 2','DORDRECHT','3317HX','nl','','','Genius Rate: Standard Rate (3653502)\nNon Smoking Requested','','','','','','','','','','','','','','',210.8,0,0,27.12,'Booking.com','Booking.com','19','688718897','2016-01-23 16:55:13','2016-01-23 16:55:13'),(31,2,909830,1,1,2,'2016-04-13','2016-04-16',3,0,'','','Lizette Drewsen','lizette-pzv1zm26zvg0apt2@guest.airbnb.com','+45 28 14 12 03','','','','','','','20:00','','It might be a bit earlier - we will text you one hour before. ','','','','','','','','','','','','','','',563,0,0,0,'Airbnb.com','Airbnb.com','10','5FWYTT','2016-02-13 11:31:55','2016-02-13 15:06:16'),(32,2,880423,1,1,2,'2016-04-25','2016-04-27',5,0,'','Iris','Asaf','iasaf.699376@guest.booking.com','0545350506','','','ז\'בוטינסקי 15','ירושלים','92141','il','16:00','','Approximate time of arrival: between 10:00 and 11:00 hours \r\nYou have a booker that prefers communication by phone\r\nYou have a booker that would like free parking. (based on availability)\r\nרגישים לכריות פוך עם נוצות\r\n\r\nGenius Rate: Standard Rate (3653502)\r\nNon Smoking Requested','','','','','','','','','','','','','','',572.4,0,0,81.36,'Booking.com','Booking.com','19','276090743','2016-02-04 10:09:05','2016-02-07 07:51:24'),(33,2,786899,1,1,1,'2016-05-25','2016-06-12',2,0,'','','Brian Wijnands','brianwijnands1969@hotmail.com','','','','','','','ge','','','','','','not ticked','','','','','','','','','','','',2278,0,0,0,'micha90210','micha90210','0','','2016-01-06 18:47:54','2016-01-06 19:31:16'),(34,8,912560,1,1,2,'2016-03-04','2016-03-08',1,0,'','Danny','Kidron','dkidro.797041@guest.booking.com','0418960102','','','6 Wonderland Ave','Tamarama','2026','au','14:00','','Approximate time of arrival: between 07:00 and 08:00 hours \nconfirming: separate bedroom , separate loungeroom, balcony.\nflight arrives 05.20\nNon Smoking Requested','','','','','','','','','','','','','','',484,0,0,69.6,'Booking.com','Booking.com','19','814211101','2016-02-14 16:08:29','2016-02-14 16:29:51'),(35,8,894770,1,1,2,'2016-03-13','2016-03-16',2,0,'','','Daniel & Daniela Koren','danieldani-87tkci11fu6e7a6n@guest.airbnb.com','+1 (646) 716-1286','','','','','','','','','','','','','','','','','','','','','','','',291,0,0,0,'Airbnb.com','Airbnb.com','10','DJMMW9','2016-02-09 05:35:46','2016-02-12 14:36:45'),(36,8,861853,1,1,2,'2016-03-19','2016-03-27',3,0,'','','Bruce Burstein','bruce-ozv4mvdhsrx3add3@guest.airbnb.com','+1 (321) 271-1642','','','','','','','','','','','','','','','','','','','','','','','',630,0,0,0,'Airbnb.com','Airbnb.com','10','25DJYX','2016-01-28 18:03:09','2016-02-12 14:36:38'),(37,8,895049,1,1,2,'2016-04-06','2016-04-09',2,0,'','Barbara','Olszewska','bolsze.131127@guest.booking.com','','','','','.','','pl','','','Approximate time of arrival: between 23:00 and 24:00 hours','','','','','','','','','','','','','','',391.2,0,0,55.68,'Booking.com','Booking.com','19','145924570','2016-02-09 09:29:53','2016-02-09 09:29:53'),(38,8,833831,1,1,2,'2016-04-22','2016-04-23',0,0,'','','Jeanette Skjoldstrand','jeanette-ed6w3rk8bagoynem@guest.airbnb.com','+45 40 38 41 55','','','','','','','','','','','','','','','','','','','','','','','',0,0,0,0,'Airbnb.com','Airbnb.com','10','F8FSS3','2016-01-19 06:41:19','2016-01-19 06:41:19'),(39,8,783988,1,1,2,'2016-06-01','2016-06-04',2,0,'','Rudi','Brunnenmiller','rbrunn.597801@guest.booking.com','0034658639455','','','Plaza San Ildefonso 2','Madrid','28004','es','','','Approximate time of arrival: between 16:00 and 17:00 hours\nSmoking Requested','','','','','','','','','','','','','','',391.2,0,0,55.68,'Booking.com','Booking.com','19','344625027','2016-01-05 17:04:29','2016-01-05 17:04:29');
+/*!40000 ALTER TABLE `booking` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `feature`
+--
+
+DROP TABLE IF EXISTS `feature`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feature` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `fa_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feature`
+--
+
+LOCK TABLES `feature` WRITE;
+/*!40000 ALTER TABLE `feature` DISABLE KEYS */;
+INSERT INTO `feature` VALUES (1,'Picturesque view','fa-camera');
+/*!40000 ALTER TABLE `feature` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `image`
+--
+
+DROP TABLE IF EXISTS `image`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `property_id` int(11) DEFAULT NULL,
+  `url` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `path` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `IDX_C53D045F549213EC` (`property_id`),
+  CONSTRAINT `FK_C53D045F549213EC` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `image`
+--
+
+LOCK TABLES `image` WRITE;
+/*!40000 ALTER TABLE `image` DISABLE KEYS */;
+/*!40000 ALTER TABLE `image` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `owner`
+--
+
+DROP TABLE IF EXISTS `owner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `owner` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `pass_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `api_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `admin` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `owner`
+--
+
+LOCK TABLES `owner` WRITE;
+/*!40000 ALTER TABLE `owner` DISABLE KEYS */;
+INSERT INTO `owner` VALUES (1,'user','a1d292f556aa661b720847487960860f17086a0bd11a4320368e9447ff7139de089aa88b6159420814f10194f1aa55a3379fb80ea26ba6397ba75cec811b241a','XceBvsHezeXceBvsHezeXceBvsHeze',1),(2,'test','ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff','test',0);
+/*!40000 ALTER TABLE `owner` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `place`
+--
+
+DROP TABLE IF EXISTS `place`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `place` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `type` int(11) NOT NULL,
+  `searchable` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `IDX_741D53CD727ACA70` (`parent_id`),
+  CONSTRAINT `FK_741D53CD727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `place` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `place`
+--
+
+LOCK TABLES `place` WRITE;
+/*!40000 ALTER TABLE `place` DISABLE KEYS */;
+INSERT INTO `place` VALUES (3,NULL,'Israel',0,1),(4,3,'Tel-Aviv',2,1),(5,4,'City Center',3,0),(6,4,'Downtown',3,0),(7,4,'Ramat aviv',3,1),(8,4,'Newe-Tzedek',3,1),(9,4,'Tzafon HaYashan',3,1);
+/*!40000 ALTER TABLE `place` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `property`
+--
+
+DROP TABLE IF EXISTS `property`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `property` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner_id` int(11) DEFAULT NULL,
+  `prop_key` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `short_description` longtext COLLATE utf8_unicode_ci,
+  `long_description` longtext COLLATE utf8_unicode_ci,
+  `propid` int(11) DEFAULT NULL,
+  `single_room` tinyint(1) NOT NULL,
+  `longitude` double DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `instant_book` tinyint(1) DEFAULT NULL,
+  `place_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_8BF21CDE7E3C61F9` (`owner_id`),
+  KEY `IDX_8BF21CDEDA6A219` (`place_id`),
+  CONSTRAINT `FK_8BF21CDE7E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `owner` (`id`),
+  CONSTRAINT `FK_8BF21CDEDA6A219` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `property`
+--
+
+LOCK TABLES `property` WRITE;
+/*!40000 ALTER TABLE `property` DISABLE KEYS */;
+INSERT INTO `property` VALUES (2,1,'montefiore21montefiore21montefiore21','Montefiore 21','Montefiore 21','not test','<p>test</p>',7344,1,34.7717198,32.065219,1,5),(3,1,'yonahanavi32yonahanavi32yonahanavi32','Yona HaNavi 32','Yona HaNavi 32','yonahanavi 32','<p>cozy room</p>',7351,1,34.7678382,32.0722207,1,7),(4,1,'yermiyahu40yermiyahu40yermiyahu40','Yermiyahu 40','Yermiyahu 40','yermiyahu40','<p>yermiyahu40<br></p>',8427,1,NULL,NULL,0,7),(5,1,'maon5maon5maon5maon5','Maon 5','Maon 5','maon5','<p>maon5</p>',10092,1,NULL,NULL,0,5),(6,1,'q7G7G7q3v6q7G7G7q3v6q7G7G7q3v6','Yehezkel 3','Yehezkel 3','yeha','<p>yeha</p>',10625,1,NULL,NULL,0,7),(7,1,'geula41geula41geula41','Geula 41','Geula 41',NULL,NULL,11172,1,NULL,NULL,NULL,NULL),(8,1,'sheinkin7sheinkin7sheinkin7','Sheinkin 7','Sheinkin 7',NULL,NULL,7263,1,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `property` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `property_feature`
+--
+
+DROP TABLE IF EXISTS `property_feature`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `property_feature` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `property_id` int(11) DEFAULT NULL,
+  `feature_id` int(11) DEFAULT NULL,
+  `attribure` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_461A3F1E549213EC` (`property_id`),
+  KEY `IDX_461A3F1E60E4B879` (`feature_id`),
+  CONSTRAINT `FK_461A3F1E549213EC` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`),
+  CONSTRAINT `FK_461A3F1E60E4B879` FOREIGN KEY (`feature_id`) REFERENCES `feature` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `property_feature`
+--
+
+LOCK TABLES `property_feature` WRITE;
+/*!40000 ALTER TABLE `property_feature` DISABLE KEYS */;
+/*!40000 ALTER TABLE `property_feature` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `property_place`
+--
+
+DROP TABLE IF EXISTS `property_place`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `property_place` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `property_id` int(11) DEFAULT NULL,
+  `place_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_B20E92C0549213EC` (`property_id`),
+  KEY `IDX_B20E92C0DA6A219` (`place_id`),
+  CONSTRAINT `FK_B20E92C0549213EC` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`),
+  CONSTRAINT `FK_B20E92C0DA6A219` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `property_place`
+--
+
+LOCK TABLES `property_place` WRITE;
+/*!40000 ALTER TABLE `property_place` DISABLE KEYS */;
+INSERT INTO `property_place` VALUES (8,2,4),(11,2,3),(23,2,9),(24,3,7),(25,3,4),(26,3,3),(27,4,7),(28,4,4),(29,4,3),(30,5,5),(31,5,4),(32,5,3),(33,6,7),(34,6,4),(35,6,3);
+/*!40000 ALTER TABLE `property_place` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rate_scope`
+--
+
+DROP TABLE IF EXISTS `rate_scope`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rate_scope` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rate_scope_set_id` int(11) DEFAULT NULL,
+  `display_name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `min_days` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `IDX_90EF4CF0E2E8ABFF` (`rate_scope_set_id`),
+  CONSTRAINT `FK_90EF4CF0E2E8ABFF` FOREIGN KEY (`rate_scope_set_id`) REFERENCES `rate_scope_set` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rate_scope`
+--
+
+LOCK TABLES `rate_scope` WRITE;
+/*!40000 ALTER TABLE `rate_scope` DISABLE KEYS */;
+INSERT INTO `rate_scope` VALUES (1,1,'1 day',1),(2,1,'2 days',2),(3,1,'5 days',5),(4,1,'1 week',7),(5,1,'2 weeks',14);
+/*!40000 ALTER TABLE `rate_scope` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rate_scope_set`
+--
+
+DROP TABLE IF EXISTS `rate_scope_set`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rate_scope_set` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner_id` int(11) DEFAULT NULL,
+  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_7D7022427E3C61F9` (`owner_id`),
+  CONSTRAINT `FK_7D7022427E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `owner` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rate_scope_set`
+--
+
+LOCK TABLES `rate_scope_set` WRITE;
+/*!40000 ALTER TABLE `rate_scope_set` DISABLE KEYS */;
+INSERT INTO `rate_scope_set` VALUES (1,NULL,'default');
+/*!40000 ALTER TABLE `rate_scope_set` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rate_stepping`
+--
+
+DROP TABLE IF EXISTS `rate_stepping`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rate_stepping` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rate_stepping_set_id` int(11) DEFAULT NULL,
+  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_2D7731448F0024C5` (`rate_stepping_set_id`),
+  CONSTRAINT `FK_2D7731448F0024C5` FOREIGN KEY (`rate_stepping_set_id`) REFERENCES `rate_scope_set` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rate_stepping`
+--
+
+LOCK TABLES `rate_stepping` WRITE;
+/*!40000 ALTER TABLE `rate_stepping` DISABLE KEYS */;
+INSERT INTO `rate_stepping` VALUES (1,1,'Low Season'),(2,1,'Low-Mid Season'),(3,1,'Mid Season'),(4,1,'Mid-High Season'),(5,1,'High Season'),(6,1,'Highest Season');
+/*!40000 ALTER TABLE `rate_stepping` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rate_stepping_set`
+--
+
+DROP TABLE IF EXISTS `rate_stepping_set`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rate_stepping_set` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner_id` int(11) DEFAULT NULL,
+  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_BF01CFAF7E3C61F9` (`owner_id`),
+  CONSTRAINT `FK_BF01CFAF7E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `owner` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rate_stepping_set`
+--
+
+LOCK TABLES `rate_stepping_set` WRITE;
+/*!40000 ALTER TABLE `rate_stepping_set` DISABLE KEYS */;
+INSERT INTO `rate_stepping_set` VALUES (1,NULL,'default');
+/*!40000 ALTER TABLE `rate_stepping_set` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `room`
+--
+
+DROP TABLE IF EXISTS `room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `room` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `property_id` int(11) DEFAULT NULL,
+  `title` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `display_price` double NOT NULL,
+  `accomodate` int(11) NOT NULL,
+  `bedrooms` int(11) DEFAULT NULL,
+  `bathrooms` int(11) DEFAULT NULL,
+  `size` int(11) DEFAULT NULL,
+  `floor` int(11) DEFAULT NULL,
+  `roomid` int(11) DEFAULT NULL,
+  `balkony` int(11) DEFAULT NULL,
+  `base_price` decimal(10,2) DEFAULT NULL,
+  `rooms_available` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `IDX_729F519B549213EC` (`property_id`),
+  CONSTRAINT `FK_729F519B549213EC` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `room`
+--
+
+LOCK TABLES `room` WRITE;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES (2,2,'STYLISH FLAT w.Parking Prime Location',100,5,1,1,20,1,16710,10,100.00,1),(3,3,'ROMANTIC ESCAPE Penthouse Studio',0,3,NULL,NULL,NULL,NULL,16731,NULL,NULL,1),(4,4,'Soft & Stylish Suite Prestigous Loc.',0,3,NULL,NULL,NULL,NULL,19153,NULL,NULL,1),(5,5,'SKY MODERN Apartment w. Parking',0,4,NULL,NULL,NULL,NULL,23244,NULL,NULL,1),(6,6,'OLD-NORTH GARDEN Aprtment w.Parking',0,4,NULL,NULL,NULL,NULL,24357,NULL,NULL,1),(7,7,'GEULA 2-BEDROOM SUITE',110,5,NULL,NULL,NULL,NULL,26641,NULL,NULL,1),(8,8,'BEST LOCATION w.Balcony 2R Sheinkin',0,4,NULL,NULL,NULL,NULL,16506,NULL,NULL,1);
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `pass_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'tinedel@tinedel.kiev.ua','bb0b1e187037642916304f48b253fab688273f207b0415d0e4cd0fbcd4bb0818bbac86e4b782ea7f1e1446b6fb3ace81585d942bd91b53f525a69fc383468fd6');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-03-09 14:25:53

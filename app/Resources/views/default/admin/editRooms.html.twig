@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ path('edit_property', {'propertyId': property.id}) }}">Back to property editing</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% for room in property.rooms %}
+                <a href="{{ path('edit_room', {'propertyId': property.id, 'roomId': room.id}) }}">{{ room.title }}</a>&nbsp;|&nbsp;
+                <a href="{{ path('remove_room', {'propertyId':property.id, 'roomId':room.id}) }}">Delete (non-fixable)</a><br/>
+            {% endfor %}
+            <a href="{{ path('edit_room', {'propertyId': property.id, 'roomId': 'newRoom' }) }}">Add room</a>
+        </div>
+    </div>
+{% endblock %}
